@@ -10,19 +10,19 @@
 </head>
 <body>
         <div id="login">
-			<form id="loginform" action="login.php" method="POST">
+			<form id="loginform" action="login.php" method="post">
 				<ul>
 					<li>
 						<label for="username">Username</label>
 					</li>
 					<li>
-						<input type="text" id="username">
+						<input type="text" id="username" name="username">
 					</li>
 					<li>
 						<label for="password">Password</label>
 					</li>
 					<li>
-						<input type="text" id="password">
+						<input type="text" id="password" name="password">
 					</li>
 					<li>
 						<input type="submit" id="submitbtn" value="Log in">

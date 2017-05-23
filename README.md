@@ -1,10 +1,10 @@
 # To-do:
 -Finish database design
--Implement home page
--Search?
+-Finish login/register
+-Search function from google?
 -Lista oglasa(pull from db)
 -Sortiranje(filteri moraju biti podrzani u bazi)
 -Online iznajmljivanje prostora
 -Ugovaranje sastanaka
 -Ostavljanje komentara
--CSS
+-CSS(raditi paralelno)
