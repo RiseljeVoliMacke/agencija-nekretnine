@@ -1,3 +1,8 @@
+ <?php
+ session_start();
+ 
+ ?>
+
 <!doctype html>
 <html>
 <head>
@@ -18,32 +23,42 @@
 		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
-			//Need to secure acces to database!
-			
-			$user = "root";
-			$pass = "";
-			$dbname = "agencija_nekretnine";
-				
-			$conn = new mysqli("localhost", $user, $pass, $dbname);
-			
-			if ($conn->connect_error) 
-				echo("Connection failed: " . $conn->connect_error);
-			
-			$username = test_input($_POST["username"]);
-			$password = test_input($_POST["password"]);
-			
-			$result = mysqli_query($conn, "SELECT username, password FROM user as u WHERE u.username = \"$username\" and u.password = \"$password\"");
-			
-			//Change condition to something better?
-			if($result->num_rows == 1)
+			if(!empty($_POST))
 			{
-				$row = $result->fetch_assoc();
-				// echo $row["username"];
-				// echo $row["password"];
-				$login = true;
+				//Need to secure acces to database!
+				
+				$user = "root";
+				$pass = "";
+				$dbname = "agencija_nekretnine";
+					
+				$conn = new mysqli("localhost", $user, $pass, $dbname);
+				
+				if ($conn->connect_error) 
+					echo("Connection failed: " . $conn->connect_error);
+				
+				$username = test_input($_POST["username"]);
+				$password = test_input($_POST["password"]);
+				
+				$result = mysqli_query($conn, "SELECT username, password FROM user as u WHERE u.username = \"$username\" and u.password = \"$password\"");
+				
+				//Change condition to something better?
+				if($result->num_rows == 1)
+				{
+					$_SESSION["user"] = $username;
+					
+					$row = $result->fetch_assoc();
+					// echo $row["username"];
+					// echo $row["password"];
+					$login = true;
+				}
+				
+				$conn->close();
 			}
-			
-			$conn->close();
+			else
+			{
+				session_unset();
+				session_destroy();
+			}
 		}
 		
 		function test_input($data) 
@@ -58,7 +73,7 @@
 	
 	<!-- Log in form on the left side -->
     <div id="login">
-		<form id="loginform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" <?php if($login) echo "class=\"hidden\""; ?>>
+		<form id="loginform" method="post" action=<?php echo "\"".htmlspecialchars($_SERVER["PHP_SELF"])."\""; if(isset($_SESSION['user'])) echo "class=\"hidden\""; ?>>
 			<ul>
 				<li>
 					<label for="username">Username</label>
@@ -100,10 +115,12 @@
 				<a href="about.php">About</a>
 			</li>
 			<li>
-				<p id="welcomemsg" <?php if(!($login)) echo "class=\"hidden\""; ?>>Welcome <?php echo $username; ?></p>
+				<p id="welcomemsg" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Welcome <?php echo $_SESSION['user']; ?></p>
 			</li>
 			<li>
-				<button type="button" id="logoutbtn" <?php if(!($login)) echo "class=\"hidden\""; ?>>Log out</button>
+				<form id="logout" method="post" action=<?php echo "\"".htmlspecialchars($_SERVER["PHP_SELF"])."\""; if(!isset($_SESSION['user'])) echo "class=\"hidden\""; ?>>
+				<input type="submit" id="logoutbtn" value="Log out" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>
+				</form>
 			</li>
 		</ul>
 		
