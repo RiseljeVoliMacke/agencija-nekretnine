@@ -69,13 +69,14 @@
 
 #logoutbtn
 {
+	top: 3px;
+	padding: 0;
 	position: absolute;
 	right: 5px;
 	color: black;
 	font-size: 120%;
-	margin-left: 10px;
 	width: 15%;
-	height: 30px;
+	height: 25px;
 }
 
 .hidden

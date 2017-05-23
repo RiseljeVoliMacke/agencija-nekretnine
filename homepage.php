@@ -1,6 +1,5 @@
  <?php
  session_start();
- 
  ?>
 
 <!doctype html>
@@ -17,15 +16,11 @@
 
 	<!-- Code to handle log-in attempts -->
 	<?php
-		$login = false;
-		global $username;
-		$username = "b";
-		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
 			if(!empty($_POST))
 			{
-				//Need to secure acces to database!
+				//Need to secure access to database!
 				
 				$user = "root";
 				$pass = "";
@@ -46,10 +41,9 @@
 				{
 					$_SESSION["user"] = $username;
 					
-					$row = $result->fetch_assoc();
+					//$row = $result->fetch_assoc();
 					// echo $row["username"];
 					// echo $row["password"];
-					$login = true;
 				}
 				
 				$conn->close();
