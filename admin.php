@@ -20,8 +20,15 @@
 			{
 				session_unset();
 				session_destroy();
+				
+				header("Location: homepage.php");
 			}
 		}
+		
+		//Redirection if not logged in as admin
+		if(!isset($_SESSION["user"]))
+			//throw new Exception('You do not have permission to access this page');
+			header("Location: homepage.php");
 	?>
 
 	<div id="center">

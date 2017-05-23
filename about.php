@@ -100,17 +100,17 @@
 		interesa.</s>
 		</li>  <li> <s>Kreirati relacionu bazu podataka (možete koristiti MySQL, SQL Server, Oracle, SQLite,
 		PostgreSQL...)</s>
-		</li>  <li> Kreirati HTML5 stranicu koja sadrži opis aplikacije i strukturu baze podataka (spisak tabela,
-		tipovi polja, ER dijagram). Opisati i koje ste alate koristili. Dati mogućnost downloada PDF
+		</li>  <li> <s>Kreirati HTML5 stranicu koja sadrži opis aplikacije i strukturu baze podataka (spisak tabela,
+		tipovi polja, ER dijagram).</s> Opisati i koje ste alate koristili. Dati mogućnost downloada PDF
 		dokumenta koji sadrži opis aplikacije.
 		</li>  <li> Potrebno je implementirati sledeće radnje:
-		<br>a) Naslovna stranica – opšti pregled vaše aplikacije, sa dijelom za registraciju ili logovanje.
-		Implementirati slajder proizvoda ili fotografija (pogledati npr. http://www.aliexpress.com/ ).
-		<br>b) Prijava za rad sa aplikacijom. Pojavljuje se pozdravna poruka i korisnik bira izmeñu 2
+		<br>a) <s>Naslovna stranica – opšti pregled vaše aplikacije, sa dijelom za registraciju ili logovanje.
+		Implementirati slajder proizvoda ili fotografija (pogledati npr. http://www.aliexpress.com/ ).</s>
+		<br>b) <s>Prijava za rad sa aplikacijom. Pojavljuje se pozdravna poruka i korisnik bira izmeñu 2
 		opcije: novi korisnik i registrovani korisnik. Ako je korisnik registrovan, mora unijeti
 		username i password. Ako se njegovo korisničko ime i lozinka nalaze u tabeli UsersPass,
 		pojavljuje se nova stranica na kojoj korisnik bira odgovarajuću akciju (opisane u sledećim
-		tačkama). Ako korisnik unese pogrešne podatke, prikaže se odgovarajuća poruka i korisniku
+		tačkama).</s> Ako korisnik unese pogrešne podatke, prikaže se odgovarajuća poruka i korisniku
 		se opet daje mogućnost unošenja podatka. Ako korisnik nije registrovan, treba prikazati
 		formu za registrovanje korisnika koja sadrži polja za username, password i potvrdu
 		password-a (confirm password), kao i lične podatke o korisniku: ime, prezime, datum
@@ -132,15 +132,15 @@
 		rezulate pretrage). Korisnik koji nije registrovan može vršiti pretragu ali ne može
 		kupovati/ostavljati komentare. Za svaku sliku implementirati opciju zumiranja (pogledati
 		npr. http://www.aliexpress.com/ ).
-		<br>d) Implementirati korpu za kupovinu ("shopping cart") – samo za veb-prodavnicu. Svaki
+		<br>d) <s>Implementirati korpu za kupovinu ("shopping cart") – samo za veb-prodavnicu. Svaki
 		registrovani korisnik može dodavati jedan ili više proizvoda u svoju korpu za kupovinu.
 		Kada izabere proizvode, korisniku se daje mogućnost da prihvati ili odbije kupovinu.
 		Potrebno je čuvati istorijat kupovina za svakog registrovanog korisnika i dati mogućnost
 		pretraživanja svih kupovina u zadatom vremenskom intervalu (na primjer, od 01. januara
 		2011. godine do 15. maja 2011. godine). Ako neregistrovani korisnik pokuša da dodaje u
-		korpu, dati mu mogućnost da se registruje.
-		<br>e) Stranica sa akcijama (administrativni dio sajta). Ove akcije može izvoditi samo korisnik koji
-		ima privilegije vlasnika prodavnice ili sajta. Vlasnik ima pravo dodavanja i brisanja
+		korpu, dati mu mogućnost da se registruje.</s>
+		<br>e) <s>Stranica sa akcijama (administrativni dio sajta). Ove akcije može izvoditi samo korisnik koji
+		ima privilegije vlasnika prodavnice ili sajta.</s> Vlasnik ima pravo dodavanja i brisanja
 		korisnika, dodavanja, izmjene i brisanja proizvoda, promjene cijena, dodavanja novih
 		vijesti, brisanja komentara korisnika koji naruše pravila ponašanja, itd. U slučaju neuspjeha
 		neke od akcija, treba prikazati odgovarajuću poruku. Dodavanje zapisa u tabelu koja sadrži
