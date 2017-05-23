@@ -24,7 +24,8 @@
 	/*padding-left: 10px;
 	padding-right: 10px;*/
 	padding-top: 6px;
-	width: 15%;
+	/*width: 10%;*/
+    min-width: 125px;
 	box-sizing: border-box;
 	
 	/*border: 1px solid red;*/
@@ -32,7 +33,6 @@
 
 #navbar a
 {
-
 	display: block;
 	font-size: 130%;
 	color: #d9d9d9;
@@ -50,10 +50,22 @@
 	text-decoration: none;
 	text-align: center;
 	margin: 0;
-	
-	position: absolute;
-	right: 20%;
+	position: relative;
+    
 	color: yellow;
+}
+
+#logoutbtn
+{
+	padding: 0;
+	color: black;
+	font-size: 120%;
+	width: 100px;
+	height: 25px;
+    
+    position: absolute;
+    top: 3px;
+	right: 10px;
 }
 
 #navbar a:hover
@@ -65,18 +77,6 @@
 {
 	background: black;
 	color: white;
-}
-
-#logoutbtn
-{
-	top: 3px;
-	padding: 0;
-	position: absolute;
-	right: 5px;
-	color: black;
-	font-size: 120%;
-	width: 15%;
-	height: 25px;
 }
 
 .hidden

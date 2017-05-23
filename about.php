@@ -36,8 +36,11 @@
 			<li>
 				<a href="contact.php">Kontakt</a>
 			</li>
+			<li class="selected">
+				<a href="about.php">About</a>
+			</li>
 			<li>
-				<a href="about.php" class="selected">About</a>
+				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\"hidden\""; ?>>Admin</a>
 			</li>
 			<li>
 				<p id="welcomemsg" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Welcome <?php echo $_SESSION['user']; ?></p>

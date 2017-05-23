@@ -1,11 +1,11 @@
- <?php
+<?php
  session_start();
  ?>
 
 <!doctype html>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Početna</title>
     <meta charset="utf8">
     <script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/slideshow.js"></script>
@@ -39,7 +39,12 @@
 				//Change condition to something better?
 				if($result->num_rows == 1)
 				{
+					//admin check
 					$_SESSION["user"] = $username;
+					
+					//Add all usernames that have admin level priviledges
+					if($username=="admin")
+						$_SESSION["status"] = "admin";
 					
 					//$row = $result->fetch_assoc();
 					// echo $row["username"];
@@ -79,7 +84,7 @@
 					<label for="password">Password</label>
 				</li>
 				<li>
-					<input type="text" id="password" name="password">
+					<input type="password" id="password" name="password">
 				</li>
 				<li>
 					<input type="submit" id="submitbtn" value="Log in">
@@ -93,7 +98,6 @@
 	</div>
 	
 	<div id="center">
-	
 		<!--Navigation bar on top of central div-->
 		<ul id="navbar">
 			<li class="selected">
@@ -107,6 +111,9 @@
 			</li>
 			<li>
 				<a href="about.php">About</a>
+			</li>
+			<li>
+				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\"hidden\""; ?>>Admin</a>
 			</li>
 			<li>
 				<p id="welcomemsg" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Welcome <?php echo $_SESSION['user']; ?></p>
@@ -128,7 +135,8 @@
 		query them from db later-->
 		<div id="slider">
 		</div>
-
+       
+        
 	</div>
 		
 </body>

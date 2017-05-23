@@ -5,9 +5,9 @@
 <!doctype html>
 <html>
 <head>
-    <title>Oglasi</title>
+    <title>Admin</title>
     <meta charset="utf8">
-	<link rel="stylesheet" type="text/css" href="css/oglasi.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
 	<link rel="stylesheet" type="text/css" href="css/navbar.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 			<li>
 				<a href="homepage.php">Početna</a>
 			</li>
-			<li class="selected">
+			<li>
 				<a href="oglasi.php">Oglasi</a>
 			</li>
 			<li>
@@ -39,8 +39,8 @@
 			<li>
 				<a href="about.php">About</a>
 			</li>
-			<li>
-				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\"hidden\""; ?>>Admin</a>
+			<li class="selected">
+				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\" hidden\""; ?>>Admin</a>
 			</li>
 			<li>
 				<p id="welcomemsg" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Welcome <?php echo $_SESSION['user']; ?></p>
@@ -52,9 +52,8 @@
 			</li>
 		</ul>
 		
-		<h1>OGLASI</h1>
-		<img src="images/h1.png" style="width: 100%">
-		<img src="images/h2.png" style="width: 100%">
+		<h1 style="text-align: center">Control module</h1>
+		<img src="images/rak6.png">
 	</div>
  
 </body>
