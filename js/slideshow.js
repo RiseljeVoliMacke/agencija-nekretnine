@@ -60,7 +60,6 @@ $(document).ready(function()
 		$("img:nth-child("+tmp+")").animate({right: "200%"}, 1000, function()
 		{
 			var tmp2 = stack.shift()
-			// console.log(tmp2);
 			document.getElementById("img"+ tmp2).style.right = "-100%";	
 		});
 		
@@ -92,6 +91,3 @@ function createSlideshow()
 	if(tmp==0)
 		tmp = 1;
 }
-
-
-

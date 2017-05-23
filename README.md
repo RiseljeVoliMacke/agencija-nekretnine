@@ -8,3 +8,4 @@
 -Ugovaranje sastanaka
 -Ostavljanje komentara
 -CSS(raditi paralelno)
+-remove ID from table user on diagram(username = PK)
