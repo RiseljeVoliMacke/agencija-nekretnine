@@ -9,8 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="css/navbar.css">
 </head>
 <body>
+
+	<!-- Code to handle log-in attempts -->
 	<?php
 		$login = false;
+		global $username;
+		$username = "b";
 		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
@@ -50,12 +54,11 @@
 		  
 		  return $data;
 		}
-		
 	?>
 	
 	<!-- Log in form on the left side -->
-    <div id="login" <?php if($login) echo "class=\"hidden\""; ?>>
-		<form id="loginform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <div id="login">
+		<form id="loginform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" <?php if($login) echo "class=\"hidden\""; ?>>
 			<ul>
 				<li>
 					<label for="username">Username</label>
@@ -79,29 +82,42 @@
 			</ul>
 		</form>
 	</div>
-    
+	
 	<div id="center">
 	
 		<!--Navigation bar on top of central div-->
-		<div id="navbar">
-			<a href="homepage.php" class="selected">Home Page</a><a href="about.php">About</a>
-		</div>
+		<ul id="navbar">
+			<li class="selected">
+				<a href="homepage.php">Početna</a>
+			</li>
+			<li>
+				<a href="oglasi.php">Oglasi</a>
+			</li>
+			<li>
+				<a href="contact.php">Kontakt</a>
+			</li>
+			<li>
+				<a href="about.php">About</a>
+			</li>
+			<li>
+				<p id="welcomemsg" <?php if(!($login)) echo "class=\"hidden\""; ?>>Welcome <?php echo $username; ?></p>
+			</li>
+			<li>
+				<button type="button" id="logoutbtn" <?php if(!($login)) echo "class=\"hidden\""; ?>>Log out</button>
+			</li>
+		</ul>
 		
 		<!-- Header panel -->
 		<div id="header">
 			<h1>Home Page</h1>
-	
 		</div>
 	
 		<!-- Center slider -->
 		<!-- using images from folder for now, 
 		query them from db later-->
 		<div id="slider">
-			
 		</div>
-		
-		<!-- Code to handle log-in attempts -->
-		
+
 	</div>
 		
 </body>

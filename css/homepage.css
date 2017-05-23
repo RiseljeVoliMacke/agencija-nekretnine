@@ -53,6 +53,11 @@ body {
 	padding-top: 3px;
 }
 
+#login p
+{
+	margin-left: 10px;
+}
+
 #header 
 {
 	text-align: center;
@@ -98,7 +103,3 @@ body {
 	background: red;
 }
 
-.hidden
-{
-	display: none;
-}
