@@ -1,6 +1,6 @@
 # To-do:
 -Finish database design
--Finish login/register
+-Finish register page
 -Search function from google?
 -Lista oglasa(pull from db)
 -Sortiranje(filteri moraju biti podrzani u bazi)
@@ -8,4 +8,3 @@
 -Ugovaranje sastanaka
 -Ostavljanje komentara
 -CSS(raditi paralelno)
--remove ID from table user on diagram(username = PK)
