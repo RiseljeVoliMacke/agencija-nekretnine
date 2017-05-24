@@ -2,6 +2,8 @@ var tmp, txt;
 
 $(document).ready(function() 
 {
+	
+	
 	//Display guidelines for username
 	$("#username").on('input', function()
 	{
@@ -64,7 +66,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			$("#passconfirm").parent().parent().after("<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Wrong password</td></tr>");
+			$("#passconfirm").parent().parent().after("<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Passwords don't match</td></tr>");
 		}
 	});
 	
@@ -80,7 +82,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			$("#email").parent().parent().after("<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid email</td></tr>");
+			$("#email").parent().parent().after("<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid e-mail</td></tr>");
 		}
 	});
 	
@@ -192,7 +194,7 @@ function validatePassword()
 	if(!tmp.test(txt))
 		return false;
 	
-	return true;
+	return txt.length>=6 && txt.length<=30;
 }
 
 function confirmPassword()
@@ -252,13 +254,11 @@ function validateBirthDate()
 	txt = $("#bday").val();
 
 	tmp = $("#bday").val().match(/[0-9-]{8,10}/);
-	
 	if(txt!=tmp)
 		return false;
 	
 	var args = [];
 	args = txt.split("-");
-	console.log(args);
 	
 	if(args[0]<1 || args[0]>31)
 		return false;
@@ -276,12 +276,17 @@ function validatePhoneNum()
 {
 	txt = $("#phonenum").val();
 
-	tmp = $("#phonenum").val().match(/[0-9-]{1,15}/);
+	tmp = $("#phonenum").val().match(/[0-9-]{0,15}/);
 	
 	if(txt!=tmp)
 		return false;
 	
 	txt = txt.replace(/-/g, "")
 	
-	return txt.length<=10 && txt.length>=3;
+	return (txt.length<=10 && txt.length>=3) || (txt.length==0);
+}
+
+function resetWarnings()
+{
+	$(".msg").remove();
 }

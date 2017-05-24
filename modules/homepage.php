@@ -32,7 +32,7 @@
 				$conn = new mysqli("localhost", $user, $pass, $dbname);
 				
 				if ($conn->connect_error) 
-					echo("Connection failed: " . $conn->connect_error);
+					die("Connection failed: " . $conn->connect_error);
 				
 				$username = test_input($_POST["username"]);
 				$password = test_input($_POST["password"]);

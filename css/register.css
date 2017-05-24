@@ -36,7 +36,7 @@ td:nth-child(even)
 	max-width: 60%;
 }
 
-input
+input, select
 {
 	margin-left: 5%;
 	margin-right: 5%;
