@@ -1,15 +1,14 @@
 # To-do:
 -Finish database design
--Finish register page
 -Search function from google?
--Lista oglasa(pull from db)
 -Sortiranje(filteri moraju biti podrzani u bazi)
 -Online iznajmljivanje prostora
 -Ugovaranje sastanaka
 -Ostavljanje komentara
+-Administratorske akcije
 -CSS(raditi paralelno)
 -add log-in panel on every page(except register/admin)?
-
+-kontakt tab only visible to logged in user?
 
 List of leftovers from files:
 //Provjera po mjesecima, etc? CBA for now
@@ -24,3 +23,4 @@ List of leftovers from files:
 		
 		
 //Fix code on succesful log-in
+

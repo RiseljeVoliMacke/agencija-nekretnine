@@ -167,7 +167,7 @@
 				<a href="homepage.php">Početna</a>
 			</li>
 			<li>
-				<a href="oglasi.php">Oglasi</a>
+				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
 				<a href="contact.php">Kontakt</a>

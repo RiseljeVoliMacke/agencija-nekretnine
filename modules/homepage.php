@@ -44,6 +44,7 @@
 				{
 					//admin check
 					$_SESSION["user"] = $username;
+					$_SESSION["pagenum"] = 1;
 					
 					//Add all usernames that have admin level priviledges
 					if($username=="admin")
@@ -110,7 +111,7 @@
 				<a href="homepage.php">Početna</a>
 			</li>
 			<li>
-				<a href="oglasi.php">Oglasi</a>
+				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
 				<a href="contact.php">Kontakt</a>

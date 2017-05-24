@@ -1,7 +1,7 @@
 var tmp = 1;
 var next;
-imgArray = [];
-sliderBtnArray = [];
+var imgArray = [];
+var sliderBtnArray = [];
 var i = 0;
 var interval;
 var stack = [];

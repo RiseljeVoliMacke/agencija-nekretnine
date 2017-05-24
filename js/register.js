@@ -10,7 +10,7 @@ $(document).ready(function()
 		if(typeof($("#username").parent().parent().next().attr("class"))!="undefined" && $("#username").parent().parent().next().attr("class").search("msg")>-1)
 			$("#username").parent().parent().next().remove();
 		
-		$("#username").parent().parent().after("<tr class=\"msg\"><td colspan=\"2\" class=\"infomsg\">Username can consist of letters and numbers and should be have between 8 and 20 characters</td></tr>");
+		$("#username").parent().parent().after("<tr class=\"msg\"><td colspan=\"2\" class=\"infomsg\">Username can consist of letters and numbers and should have between 8 and 20 characters</td></tr>");
 	});
 	
 	//Validate username

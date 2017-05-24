@@ -1,0 +1,89 @@
+h1
+{
+	text-align: center;
+}
+
+img
+{
+	margin-bottom: -5px;
+	width: 100%;
+	height: auto;
+	
+	/*box-sizing: border-box;*/
+}
+
+#oglasi table
+{
+	border-collapse: collapse;
+	position: relative;
+	display: inline-block;
+	width: 80%;
+	left: 10%;
+	padding-bottom: 20px;
+}
+
+td
+{
+	padding: 0;
+	border: 1px solid black;
+	max-height: 98%;
+	overflow: hidden;
+	text-align: center;
+}
+
+td.rightcol
+{
+	width: 25%;
+}
+
+.link
+{
+	background: yellow;
+	font-size: 130%;
+	margin-bottom: 5px;
+}
+
+.opis
+{
+	overflow: hidden;
+}
+
+#pagecount
+{
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#pagecount ul
+{
+	list-style: none;
+	padding: 0;
+}
+
+#pagecount li
+{
+	display: inline-block;
+	border: 3px solid lime;
+	background: yellow;
+	font-size: 150%;
+	padding: 5px;
+	width: 3%;
+	position:relative; 
+}
+
+#pagecount a
+{
+	text-decoration: none;
+	text-align: center;
+}
+
+#pagecount li:hover
+{
+	cursor: pointer;
+}
+
+.hiddenp
+{
+	display: none;
+}

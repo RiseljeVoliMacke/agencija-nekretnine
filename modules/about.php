@@ -31,7 +31,7 @@
 				<a href="homepage.php">Početna</a>
 			</li>
 			<li>
-				<a href="oglasi.php">Oglasi</a>
+				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
 				<a href="contact.php">Kontakt</a>
@@ -110,7 +110,7 @@
 		opcije: novi korisnik i registrovani korisnik. Ako je korisnik registrovan, mora unijeti
 		username i password. Ako se njegovo korisničko ime i lozinka nalaze u tabeli UsersPass,
 		pojavljuje se nova stranica na kojoj korisnik bira odgovarajuću akciju (opisane u sledećim
-		tačkama).</s> Ako korisnik unese pogrešne podatke, prikaže se odgovarajuća poruka i korisniku
+		tačkama). Ako korisnik unese pogrešne podatke, prikaže se odgovarajuća poruka i korisniku
 		se opet daje mogućnost unošenja podatka. Ako korisnik nije registrovan, treba prikazati
 		formu za registrovanje korisnika koja sadrži polja za username, password i potvrdu
 		password-a (confirm password), kao i lične podatke o korisniku: ime, prezime, datum
@@ -118,7 +118,7 @@
 		ispravnosti ulaza primjenon JQuery-a ili nekog drugoj JavaScript framework-a (na primjer,
 		da li je broj telefona ispravno unešen, da li je datum roñenja ispravan, itd.). Početna strana
 		sadrži i link na stranicu sa podacima o aplikaciji. Korisnik mora imati mogućnost da
-		pregleda sadržaj prodavnice/sajta bez prijavljivanja. Prijavljivanje je obavezno samo ako
+		pregleda sadržaj prodavnice/sajta bez prijavljivanja.</s> Prijavljivanje je obavezno samo ako
 		korisnik želi da kupi neki proizvod ili ako želi da ostavlja komentare.
 		<br>c) Stranica za pretragu. Moguća su 2 nivoa pretrage: pretraga podataka u bazi i pretraga veba
 		primjenom jednog od tri ponuñena pretraživača (Google, i još dva po vašem izboru).
@@ -147,7 +147,7 @@
 		slike odraditi unošenjem slike u bazu ili uploadom slike u direktorijum na veb-serveru.
 		</li>  <li> Sve stranice moraju da imaju jedinstven izgled odreñen sa jednom ili više eksternih CSS
 		datoteka. Sve HTML i CSS datoteke moraju proći validaciju.
-		</li>  <li> Primjenom JavaScripta ili JQuery ili neke druge biblioteke vršiti validaciju na strani klijenta.
+		</li>  <li> <s>Primjenom JavaScripta ili JQuery ili neke druge biblioteke vršiti validaciju na strani klijenta.</s>
 		</li>
 		
 	</ol>  
