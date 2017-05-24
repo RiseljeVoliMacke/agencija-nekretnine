@@ -5,10 +5,10 @@
 <!doctype html>
 <html>
 <head>
-    <title>Oglasi</title>
+    <title>Kontakt</title>
     <meta charset="utf8">
-	<link rel="stylesheet" type="text/css" href="css/oglasi.css">
-	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/contact.css">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
 <body>
 
@@ -30,10 +30,10 @@
 			<li>
 				<a href="homepage.php">Početna</a>
 			</li>
-			<li class="selected">
+			<li>
 				<a href="oglasi.php">Oglasi</a>
 			</li>
-			<li>
+			<li class="selected">
 				<a href="contact.php">Kontakt</a>
 			</li>
 			<li>
@@ -52,9 +52,8 @@
 			</li>
 		</ul>
 		
-		<h1>OGLASI</h1>
-		<img src="images/h1.png" style="width: 100%">
-		<img src="images/h2.png" style="width: 100%">
+		<img src="../images/rak6.png">
+		
 	</div>
  
 </body>

@@ -7,10 +7,10 @@
 <head>
     <title>Početna</title>
     <meta charset="utf8">
-    <script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/slideshow.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/homepage.css">
-	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/slideshow.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/homepage.css">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
 <body>
 

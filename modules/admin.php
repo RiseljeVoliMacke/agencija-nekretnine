@@ -1,22 +1,34 @@
+<?php
+ session_start();
+ ?>
+
 <!doctype html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Admin</title>
     <meta charset="utf8">
-    <script src="js/jquery-3.2.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
 <body>
+
 	<?php
-	//Log-out handler
-	if ($_SERVER["REQUEST_METHOD"] == "POST") 
-	{
-		if(empty($_POST))
+		//Log-out handler
+		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
-			session_unset();
-			session_destroy();
+			if(empty($_POST))
+			{
+				session_unset();
+				session_destroy();
+				
+				header("Location: homepage.php");
+			}
 		}
-	}
+		
+		//Redirection if not logged in as admin
+		if(!isset($_SESSION["user"]))
+			//throw new Exception('You do not have permission to access this page');
+			header("Location: homepage.php");
 	?>
 
 	<div id="center">
@@ -34,8 +46,8 @@
 			<li>
 				<a href="about.php">About</a>
 			</li>
-			<li>
-				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\"hidden\""; ?>>Admin</a>
+			<li class="selected">
+				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\" hidden\""; ?>>Admin</a>
 			</li>
 			<li>
 				<p id="welcomemsg" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Welcome <?php echo $_SESSION['user']; ?></p>
@@ -47,7 +59,9 @@
 			</li>
 		</ul>
 		
+		<h1 style="text-align: center">Control module</h1>
+		<img src="../images/rak6.png">
 	</div>
-		
+ 
 </body>
 </html>

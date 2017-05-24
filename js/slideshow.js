@@ -15,7 +15,8 @@ $(document).ready(function()
 	for(i; i<numOfImages; i++)
 	{
 		imgArray[i] = document.createElement("img");
-		imgArray[i].src = "images/rak"+(i+1)+".png";
+		imgArray[i].src = "../images/rak"+(i+1)+".png";
+		imgArray[i].alt = "sliderimage"+(i+1);
 		imgArray[i].id = "img" + (i+1);
 		
 		document.getElementById("slider").appendChild(imgArray[i]);

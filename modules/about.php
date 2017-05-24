@@ -7,8 +7,8 @@
 <head>
     <title>About</title>
     <meta charset="utf8">
-	<link rel="stylesheet" type="text/css" href="css/about.css">
-	<link rel="stylesheet" type="text/css" href="css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/about.css">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
 <body>
 
@@ -80,7 +80,7 @@
     </ul>
 		<br>
 		<p>Opis baze, bla bla bla</p>
-		<img src="images/er.png">
+		<img src="../images/er.png">
 		
 
 	<ol>

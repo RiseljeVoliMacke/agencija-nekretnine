@@ -8,3 +8,4 @@
 -Ugovaranje sastanaka
 -Ostavljanje komentara
 -CSS(raditi paralelno)
+-add log-in panel on every page(except register/admin)?
