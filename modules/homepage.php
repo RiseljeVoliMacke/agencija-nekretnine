@@ -16,24 +16,23 @@
 
 	<!-- Code to handle log-in attempts -->
 	<?php
-	/*For error handling, will only display 1 message("Invalid username or password") rather then be specific for security reasons*/
-	$error = "";
+		/*For error handling, will only display 1 message("Invalid username or password") rather then be specific for security reasons*/
+		$error = "";
 
+		//Need to secure access to database!	
+		$user = "root";
+		$pass = "";
+		$dbname = "agencija_nekretnine";
+			
+		$conn = new mysqli("localhost", $user, $pass, $dbname);
+		
+		if ($conn->connect_error) 
+			die("Connection failed: " . $conn->connect_error);
+	
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
 			if(!empty($_POST))
 			{
-				//Need to secure access to database!
-				
-				$user = "root";
-				$pass = "";
-				$dbname = "agencija_nekretnine";
-					
-				$conn = new mysqli("localhost", $user, $pass, $dbname);
-				
-				if ($conn->connect_error) 
-					die("Connection failed: " . $conn->connect_error);
-				
 				$username = test_input($_POST["username"]);
 				$password = test_input($_POST["password"]);
 				
@@ -49,15 +48,9 @@
 					//Add all usernames that have admin level priviledges
 					if($username=="admin")
 						$_SESSION["status"] = "admin";
-					
-					//$row = $result->fetch_assoc();
-					// echo $row["username"];
-					// echo $row["password"];
 				}
 				else
 					$error = "Invalid username or password";
-				
-				$conn->close();
 			}
 			else
 			{
@@ -65,6 +58,14 @@
 				session_destroy();
 			}
 		}
+		
+		$sql = "select count(*) from oglas";
+		$result = mysqli_query($conn, $sql);
+		$result = $result->fetch_assoc();
+
+		$picCount = $result["count(*)"];
+		
+		$conn->close();
 		
 		function test_input($data) 
 		{
@@ -138,12 +139,12 @@
 		</div>
 	
 		<!-- Center slider -->
-		<!-- using images from folder for now, 
-		query them from db later-->
 		<div id="slider">
 		</div>
        
-        
+        <p class="hiddenp">
+			<?php echo $picCount; ?>
+		</p>
 	</div>
 		
 </body>

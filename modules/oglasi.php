@@ -72,14 +72,15 @@
 
 					$pageCount = (int) ceil( $result["count(*)"]/ 5);
 					
-					$split = $_GET["page"];
-					// echo "<script>console.log(".$split.")</script>";
+					if(isset($_GET["page"]))
+						$split = $_GET["page"];
+					else
+						$split = 1;
 		
-					
 					$lowerBound = 1 + ($split-1) * 5;
 					$upperBound = $split * 5;
 					
-					$sql = "select kratki_opis, slika, grad, ulica from
+					$sql = "select o.id, kratki_opis, slika, grad, ulica from
 					oglas as o, nekretnina as n
 					where o.n_id=n.id and o.id>=".$lowerBound." and o.id<=".$upperBound."";
 					
@@ -92,14 +93,10 @@
 						echo "<td class=\"rightcol\"><p>".$row["grad"]."</p></td></tr>";
 						echo "<tr><td class=\"opis\"><p>".$row["kratki_opis"]."</p></td>";
 						//NEED TO FIX LINKS!!!
-						echo "<td class=\"rightcol link\"><a href=\"http://localhost:8080/agencija-nekretnine/modules/oglasi.php\">More details</a></td></tr></table>";
-						
+						echo "<td class=\"rightcol link\"><a href=\"index.php?num=".$row["id"]."\">More details</a></td></tr></table>";
 					}
-					
 				?>
-
 		</div>
-		
 		
 		<div id="pagecount">
 			<ul id="pagecountlist">

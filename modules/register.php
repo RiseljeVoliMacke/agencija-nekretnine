@@ -138,7 +138,7 @@
 				
 				if(mysqli_query($conn, $sql))
 				{
-					//Fix code on succesful log-in
+					//Fix code on succesful registration
 					header("Location: homepage.php");
 				}
 				else

@@ -1,6 +1,7 @@
 var tmp, i;
 var pageNumArray = [];
 
+//Avoid using jquery?
 $(document).ready(function()
 {
 	tmp = $(".hiddenp").text();

@@ -5,17 +5,35 @@ var sliderBtnArray = [];
 var i = 0;
 var interval;
 var stack = [];
+var numOfImages = 5;
 
 $(document).ready(function() 
 {	
 	//Get images from db with php
-	var numOfImages = 5;
+	var upperBound = $(".hiddenp").text();
+
+	var randomArr = [];
+	var coef = 0.25;
+	var tmp1 = Math.random();
+	
+	while(randomArr.length<numOfImages)
+	{
+		tmp1 = Math.random();
+
+		if(tmp1<coef)
+		{
+			tmp1 = Math.floor(Math.random()*upperBound) + 1;
+			
+			if(!randomArr.includes(tmp1))
+				randomArr.push(tmp1);
+		}
+	}
 	
 	//Populating array with image elements and adding them to div
 	for(i; i<numOfImages; i++)
 	{
 		imgArray[i] = document.createElement("img");
-		imgArray[i].src = "../images/rak"+(i+1)+".png";
+		imgArray[i].src = "../oglasi_images/nek"+randomArr[i]+".jpg";
 		imgArray[i].alt = "sliderimage"+(i+1);
 		imgArray[i].id = "img" + (i+1);
 		
@@ -72,7 +90,7 @@ $(document).ready(function()
 
 function createSlideshow()
 {	
-	next = (tmp + 1) % 6;
+	next = (tmp + 1) % (numOfImages+1);
 	if (next == 0)
 		next = 1;
 	
@@ -85,10 +103,10 @@ function createSlideshow()
 	if(tmp>1)
 		document.getElementById("img"+ (tmp-1)).style.right = "-100%";
 	else 
-		document.getElementById("img5").style.right = "-100%";
+		document.getElementById("img"+numOfImages).style.right = "-100%";
 	
 	
-	tmp = (tmp + 1) % 6;
+	tmp = (tmp + 1) % (numOfImages+1);
 	if(tmp==0)
 		tmp = 1;
 }

@@ -1,10 +1,11 @@
 # To-do:
+-Ostavljanje komentara
+-Sortiranje(filteri moraju biti podrzani u bazi)
+
 -Finish database design
 -Search function from google?
--Sortiranje(filteri moraju biti podrzani u bazi)
--Online iznajmljivanje prostora
+-Online iznajmljivanje prostora??????
 -Ugovaranje sastanaka
--Ostavljanje komentara
 -Administratorske akcije
 -CSS(raditi paralelno)
 -add log-in panel on every page(except register/admin)?
@@ -17,10 +18,7 @@ List of leftovers from files:
 //Php validacija datuma rodjenja?
 
 //Need to secure access to database!
-<!-- using images from folder for now, 
-		query them from db later-->
 		
-		
-		
-//Fix code on succesful log-in
-
+//Fix code on succesful registration (register.php)
+//Avoid using jquery? (oglasi.js)
+//Fix slider button bug(if you click the same button)
