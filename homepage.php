@@ -16,6 +16,9 @@
 
 	<!-- Code to handle log-in attempts -->
 	<?php
+	/*For error handling, will only display 1 message("Invalid username or password") rather then be specific for security reasons*/
+	$error = "";
+
 		if ($_SERVER["REQUEST_METHOD"] == "POST") 
 		{
 			if(!empty($_POST))
@@ -50,6 +53,8 @@
 					// echo $row["username"];
 					// echo $row["password"];
 				}
+				else
+					$error = "Invalid username or password";
 				
 				$conn->close();
 			}
@@ -88,6 +93,7 @@
 				</li>
 				<li>
 					<input type="submit" id="submitbtn" value="Log in">
+					<?php echo "<span class=\"errortext\">".$error."</span>"; ?>
 				</li>
 				<li>
 					Need an account? <a href="register.php">Register</a>

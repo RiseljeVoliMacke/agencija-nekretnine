@@ -4,10 +4,31 @@
 	font-family: Arial, Helvetica, Serif;
 }
 
+body 
+{
+	background: #666666;
+	background-image: url("../images/background1.jpg");
+	/*background-size:cover;*/
+	/*margin: 0;
+	width: 100%;*/
+}
+
+#center {
+	background: #e6e6e6;
+	position: absolute;
+	left: 20%;
+	top: 0;
+	width: 60%;
+	min-height: 105%;
+	border-left: 3px solid black;
+	border-right: 3px solid black;
+    overflow: hidden;
+}
+
 #navbar 
 {
 	top: 0;
-	background: #4d4d4d;
+	background: #595959;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -75,7 +96,7 @@
 
 #navbar li.selected
 {
-	background: black;
+	background: #1a1a1a;
 	color: white;
 }
 
