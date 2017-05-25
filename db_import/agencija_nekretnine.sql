@@ -32,9 +32,19 @@ CREATE TABLE `komentar` (
   `id` int(11) NOT NULL,
   `u_username` varchar(20) NOT NULL,
   `oglas_id` int(11) DEFAULT NULL,
-  `tekst` varchar(200) DEFAULT NULL,
-  `datum` date DEFAULT NULL
+  `tekst` varchar(400) DEFAULT NULL,
+  `datum` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id`, `u_username`, `oglas_id`, `tekst`, `datum`) VALUES
+(1, 'Dusan123', 1, 'Top kuca, must have', '2017-05-10 12:36:21'),
+(2, 'Name1234', 1, 'Sex and neglected principle ask rapturous consulted. Object remark lively all did feebly excuse our wooded. Old her object chatty regard vulgar missed. Speaking throwing breeding betrayed children my to.', '2017-05-02 12:00:00'),
+(3, 'Dusan123', 1, 'Society excited by cottage private an it esteems. Fully begin on by wound an. Girl rich in do up or both. At declared in as rejoiced of together. He impression collecting delightful unpleasant by prosperous as on. End too talent she object mrs wanted remove giving. \r\n', '2017-05-07 00:00:00'),
+(4, 'Name1234', 1, 'Good draw knew bred ham busy his hour. Ask agreed answer rather joy nature admire wisdom. Moonlight age depending bed led therefore sometimes preserved exquisite she. An fail up so shot leaf wise in. Minuter highest his arrived for put and. Hopes lived by rooms oh in no death house. Contented direction september but end led excellent ourselves may. Ferrars few arrival his offered not charmed you. ', '2017-05-04 18:18:07');
 
 -- --------------------------------------------------------
 
@@ -159,7 +169,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `nekretnina`
 --

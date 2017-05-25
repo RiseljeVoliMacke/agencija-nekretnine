@@ -26,7 +26,7 @@
 		}
 		
 		//Redirection if not logged in as admin
-		if(!isset($_SESSION["user"]))
+		if(!isset($_SESSION["user"]) or $_SESSION["user"]!="admin")
 			//throw new Exception('You do not have permission to access this page');
 			header("Location: homepage.php");
 	?>
@@ -60,7 +60,7 @@
 		</ul>
 		
 		<h1 style="text-align: center">Control module</h1>
-		<img src="../images/rak6.png">
+		<img src="../images/rak1.png" style="width:100%; height:auto;">
 	</div>
  
 </body>

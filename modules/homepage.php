@@ -43,7 +43,7 @@
 				{
 					//admin check
 					$_SESSION["user"] = $username;
-					$_SESSION["pagenum"] = 1;
+					//$_SESSION["pagenum"] = 1;
 					
 					//Add all usernames that have admin level priviledges
 					if($username=="admin")

@@ -52,7 +52,7 @@
 			</li>
 		</ul>
 		
-		<img src="../images/rak6.png">
+		<img src="../images/rak2.png">
 		
 	</div>
  

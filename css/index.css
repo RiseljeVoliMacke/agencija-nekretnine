@@ -15,12 +15,19 @@
 	height: auto;
 }
 
-#tblinfo table
+#tblinfo
 {
 	display: inline-block;
+	width: 39%;
 	margin-top: 15px;
+	/*box-sizing: border-box;*/
+}
+
+#tblinfo table
+{
+	/*display: inline-block;*/
 	margin-left: 1%;
-	width: 38%;
+	width: 100%;
 	overflow: hidden;
 	
 	border-collapse: collapse;
@@ -41,12 +48,13 @@
 #opis
 {
 	display: block;
-	margin-top: 24%;
+	/*margin-top: 24%;*/
 	margin-left: 25%;
 	margin-right: 25%;
 	width: 50%;
 	border: 1px solid black;
 	overflow: hidden;
+	clear: left;
 }
 
 h2
@@ -58,4 +66,59 @@ h2
 #opisp
 {
 	text-align:center;
+}
+
+hr
+{
+	position: relative;
+	top: 4px;
+	clear: left;
+}
+
+#komentari
+{
+	width: 60%;
+	display: inline-block;
+	overflow: hidden;
+	position:relative;
+	top: -6px;
+	
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+}
+
+#komentari ul
+{
+	list-style: none;
+	margin: 2%;
+	padding: 0;
+	width: 95%;
+	overflow: hidden;
+	
+	/*border: 1px solid red;*/
+}
+
+#komentari li
+{
+	border: 1px solid #cca300;
+	display: inline-block;
+	padding: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
+	width: 95%;
+	overflow: hidden;
+	background: #ffff99;
+	
+	/*border: 1px solid lime;*/
+}
+
+.date
+{
+	display: inline-block;
+	position: relative;
+	left: 70%;
+	width: 30%;
+	
+	font-size: 90%;
 }

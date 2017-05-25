@@ -44,8 +44,6 @@
 		{
 			$row = $result->fetch_assoc();
 		}
-		
-		$conn->close();
 	?>
 
 	<div id="center">
@@ -124,11 +122,52 @@
 					</tr>
 				</table>
 			</div>
-		
+			
+			<hr>
+			
 			<div id="opis">
+			
 				<h2>Više detalja:</h2>
 			<br>
 				<p id="opisp"><?php echo $row["opis"]; ?></p>
+			</div>
+			
+			<hr>
+			
+			<div id="komentari">
+				<h2>Komentari</h2>
+				<ul>
+					<?php
+						$sql = "select u_username, tekst, datum
+							from komentar as k
+							where k.oglas_id=".$index."
+							order by datum desc";
+					
+						$result = mysqli_query($conn, $sql);
+						
+						while($row = $result->fetch_assoc())
+						{
+							echo "<li><span class=\"username\">".$row["u_username"]." said:</span>";
+							echo "<p class=\"comment\">".$row["tekst"]."</p>";
+							echo "<span class=\"date\">".date('d-m-Y H:i:s', strtotime($row["datum"]))."</span>";
+						}
+						
+					$conn->close();
+					?>
+				
+				
+					<!--<li>
+						<span class="username">Dusan said:</span>
+						<p class="comment">Top top top</p>
+						<span class="date">25-6-2017 22:13:14</span>
+					</li>
+					<li>
+						<span class="username">User2 said:</span>
+						<p class="comment">Sex and neglected principle ask rapturous consulted. Object remark lively all did feebly excuse our wooded. Old her object chatty regard vulgar missed. Speaking throwing breeding betrayed children my to.</p>
+						<span class="date">25-6-2017 22:13:14</span>
+					</li>-->
+				
+				</ul>
 			</div>
 		
 		</div>
