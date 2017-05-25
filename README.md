@@ -16,9 +16,19 @@ List of leftovers from files:
 //Dodati naša slova?
 
 //Php validacija datuma rodjenja?
-
 //Need to secure access to database!
 		
 //Fix code on succesful registration (register.php)
 //Avoid using jquery? (oglasi.js)
 //Fix slider button bug(if you click the same button)
+
+-breadcrumbs
+-interface elementi
+-kreiranje oglasa, editovanje oglasa
+-kreiranje, editovanje komentara
+-capcha code on registration
+
+function jsdebug($tmp)
+{
+	echo "<script>console.log(\"".$tmp."\")</script>";
+}

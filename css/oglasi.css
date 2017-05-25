@@ -78,7 +78,7 @@ td.rightcol
 	text-align: center;
 }
 
-#pagecount li:hover
+#pagecount a:hover
 {
 	cursor: pointer;
 }
@@ -105,8 +105,8 @@ td.rightcol
 
 #search
 {
-	
-	padding: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
 	text-decoration: none;
 	font-size: 130%;
 	margin-top: 10px;
@@ -123,6 +123,31 @@ h3
 #filters
 {
 	font-size: 120%;
+}
+
+#filters
+{
+	width: 65%;
+}
+
+#sortbtn
+{
+	position: relative;
+	top: -2px;
+	padding: 0;
+	width: 30%;
+	height: 25px;
+}
+
+.arrow
+{
+	width: 30px;
+	
+}
+
+.arrow:hover
+{
+	cursor: pointer;
 }
 
 .hiddenp

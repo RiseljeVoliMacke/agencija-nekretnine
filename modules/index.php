@@ -154,19 +154,6 @@
 						
 					$conn->close();
 					?>
-				
-				
-					<!--<li>
-						<span class="username">Dusan said:</span>
-						<p class="comment">Top top top</p>
-						<span class="date">25-6-2017 22:13:14</span>
-					</li>
-					<li>
-						<span class="username">User2 said:</span>
-						<p class="comment">Sex and neglected principle ask rapturous consulted. Object remark lively all did feebly excuse our wooded. Old her object chatty regard vulgar missed. Speaking throwing breeding betrayed children my to.</p>
-						<span class="date">25-6-2017 22:13:14</span>
-					</li>-->
-				
 				</ul>
 			</div>
 		

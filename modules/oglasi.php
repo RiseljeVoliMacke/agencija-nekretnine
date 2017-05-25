@@ -58,6 +58,11 @@
 		
 		<div id="oglasi">
 				<?php
+					function jsdebug($tmp)
+					{
+						echo "<script>console.log(\"".$tmp."\")</script>";
+					}
+				
 					$user = "root";
 					$pass = "";
 					$dbname = "agencija_nekretnine";
@@ -65,34 +70,44 @@
 					$conn = new mysqli("localhost", $user, $pass, $dbname);
 					if ($conn->connect_error) 
 						die("Connection failed: " . $conn->connect_error);
-					
-					$sql = "select count(*) from oglas";
-					$result = mysqli_query($conn, $sql);
-					$result = $result->fetch_assoc();
-
-					$pageCount = (int) ceil( $result["count(*)"]/ 5);
-					
+				
 					if(isset($_GET["page"]))
 						$split = $_GET["page"];
 					else
 						$split = 1;
-		
-					$lowerBound = 1 + ($split-1) * 5;
-					$upperBound = $split * 5;
 					
-					$sql = "select o.id, kratki_opis, slika, grad, ulica from
-					oglas as o, nekretnina as n
-					where o.n_id=n.id and o.id>=".$lowerBound." and o.id<=".$upperBound."";
+					$sort = "asc";
+					if(isset($_GET["sort"]))
+						$sort = $_GET["sort"];
+					
+					$filter = "";
+					if(isset($_GET["filters"]))
+					{
+						$filter = $_GET["filters"];
+						$sql = "select o.id, kratki_opis, slika, grad, cijena from
+						oglas as o, nekretnina as n
+						where o.n_id=n.id
+						order by ".$filter." ".$sort;
+					}
+					else
+					{
+						$sql = "select o.id, kratki_opis, slika, grad, cijena from
+						oglas as o, nekretnina as n
+						where o.n_id=n.id";
+					}
 					
 					$result = mysqli_query($conn, $sql);
-					
-					while($row = $result->fetch_assoc())
+					$pageCount = (int) ceil($result->num_rows/ 5);	
+					$result->data_seek(($split-1)*5);
+
+					$br = 0;
+					while($row = $result->fetch_assoc() and $br<5)
 					{
+						$br++;
 						echo "<table><tr><td colspan=\"2\"><img src=\"".$row["slika"]."\"></td></tr>";
-						echo "<tr><td><p>".$row["ulica"]."</p></td>";
-						echo "<td class=\"rightcol\"><p>".$row["grad"]."</p></td></tr>";
+						echo "<tr><td><p>".$row["grad"]."</p></td>";
+						echo "<td class=\"rightcol\"><p>".$row["cijena"]."€</p></td></tr>";
 						echo "<tr><td class=\"opis\"><p>".$row["kratki_opis"]."</p></td>";
-						//NEED TO FIX LINKS!!!
 						echo "<td class=\"rightcol link\"><a href=\"index.php?num=".$row["id"]."\">More details</a></td></tr></table>";
 					}
 				?>
@@ -103,21 +118,37 @@
 			</ul>
 		</div>
 		
-		<p class="hiddenp">
-			<?php
+		<p class="hiddenp" id="hidden1"><?php
 				echo $pageCount;
-			?>
-		</p>
+		?></p>
+		<p class="hiddenp" id="hidden2"><?php
+				echo $filter;
+		?></p>
+		
 	</div>
     <div id="rightpanel">
 		<div>
-			<a href="search.php" id="search">Advanced Search</a>
+			<a href="search.php" id="search">Napredna pretraga</a>
 			<h3>Sortiraj po:</h3>
-			<select multiple id="filters">
-				<option value="volvo">Lokacija</option>
-				<option value="saab">Cijena</option>
-				<option value="opel">Stambeni prostor</option>
-			</select>
+			<form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+				<select class="hiddenp" name="page">
+					<option class="hiddenp" value="<?php echo $split; ?>"></option>
+				</select>
+				<select name="filters" id="filters">
+					<option value="grad">Grad</option>
+					<option value="cijena">Cijena</option>
+					<option value="povrsina">Površina</option>
+					<option value="povrsina_placa">Površina placa</option>
+					<option value="broj_soba">Broj soba</option>
+				</select>
+				<select class="hiddenp" name="sort">
+					<option class="hiddenp" id="sort"></option>
+				</select>
+				
+				<input type="submit" id="sortbtn" value="Sortiraj!">
+				<img src="../images/arrow_up.png" class="arrow" id="up">
+				<img src="../images/arrow_down.png" class="arrow" id="down">
+			</form>
 		</div>
     
     
