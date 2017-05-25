@@ -8,7 +8,9 @@
 	display: inline-block;
 	margin-top: 15px;
 	width: 60%;
-	border: 1px solid black;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 	overflow: hidden;
 	float: left;
 }

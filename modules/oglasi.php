@@ -109,6 +109,19 @@
 			?>
 		</p>
 	</div>
+    <div id="rightpanel">
+		<div>
+			<a href="search.php" id="search">Advanced Search</a>
+			<h3>Sortiraj po:</h3>
+			<select multiple id="filters">
+				<option value="volvo">Lokacija</option>
+				<option value="saab">Cijena</option>
+				<option value="opel">Stambeni prostor</option>
+			</select>
+		</div>
+    
+    
+    </div>
 	
 </body>
 </html>
