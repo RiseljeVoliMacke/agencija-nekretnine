@@ -1,3 +1,8 @@
+#oglas
+{
+	
+}
+
 #slika
 {
 	display: inline-block;
@@ -29,6 +34,7 @@
 	margin-left: 1%;
 	width: 100%;
 	overflow: hidden;
+	background: #ccff99;
 	
 	border-collapse: collapse;
 }
@@ -55,6 +61,8 @@
 	border: 1px solid black;
 	overflow: hidden;
 	clear: left;
+	
+	background: #ffffcc;
 }
 
 h2
@@ -70,8 +78,6 @@ h2
 
 hr
 {
-	position: relative;
-	top: 4px;
 	clear: left;
 }
 
@@ -81,7 +87,7 @@ hr
 	display: inline-block;
 	overflow: hidden;
 	position:relative;
-	top: -6px;
+	top: -10px;
 	
 	border-right: 2px solid black;
 	border-bottom: 2px solid black;
