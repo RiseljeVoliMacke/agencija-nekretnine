@@ -7,6 +7,8 @@
 <head>
     <title>Oglas</title>
     <meta charset="utf8">
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/index.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
@@ -36,14 +38,17 @@
 		else
 			$index = 1;
 
-		$sql = "select firstName, email, phoneNum, opis, slika, grad, ulica from
+		$sql = "select username, firstName, email, phoneNum, opis, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
 		oglas as o, nekretnina as n, user as u where o.n_id=n.id and o.u_username=u.username and o.id=".$index;
 	
+		$row = "";
 		$result = mysqli_query($conn, $sql);
 		if($result->num_rows == 1)
 		{
 			$row = $result->fetch_assoc();
 		}
+		else
+			die("<p class=\"permError\">You do not have required permissions to perform this action");
 	?>
 
 	<div id="center">
@@ -69,7 +74,7 @@
 			</li>
 			<li>
 				<form id="logout" method="post" action=<?php echo "\"".htmlspecialchars($_SERVER["PHP_SELF"])."\""; if(!isset($_SESSION['user'])) echo "class=\"hidden\""; ?>>
-				<input type="submit" id="logoutbtn" value="Log out" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>
+				<input type="submit" id="logoutbtn" value="Log out" class="btn" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>
 				</form>
 			</li>
 		</ul>
@@ -106,6 +111,14 @@
 					</tr>
 					<tr>
 						<td>
+							Grad
+						</td>
+						<td>
+							<?php echo $row["grad"]; ?>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							Ulica
 						</td>
 						<td>
@@ -114,21 +127,56 @@
 					</tr>
 					<tr>
 						<td>
-							Grad
+							Površina objekta
 						</td>
 						<td>
-							<?php echo $row["grad"]; ?>
+							<?php echo $row["povrsina"]; ?> m<sup>2</sup>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Površina placa
+						</td>
+						<td>
+							<?php echo $row["povrsina_placa"]; ?> m<sup>2</sup>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Broj soba
+						</td>
+						<td>
+							<?php echo $row["broj_soba"]; ?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Cijena
+						</td>
+						<td>
+							<?php echo $row["cijena"]; ?>€
 						</td>
 					</tr>
 				</table>
 			</div>
+			<?php
+				if(isset($_SESSION['user']) && $_SESSION['user']==$row["username"])
+				{
+					echo "<form method=\"POST\" action=\"update.php\">";
+					echo "<select class=\"hiddenp\" name=\"index\">";
+					echo "<option class=\"hiddenp\" value=\"".$_GET["num"]."\"></option>";
+					echo "</select>";
+					echo "<input type=\"submit\" value=\"Izmijeniti oglas\" id=\"change\" name=\"update\" class=\"btn\">";
+					echo "<input type=\"submit\" value=\"Izbrisati oglas\" id=\"delete\" name=\"delete\" class=\"btn\">";
+					echo "</form>";
+				}
+			?>
 			
 			<hr>
 			
 			<div id="opis">
-			
 				<h2>Više detalja:</h2>
-			<br>
+				<br>
 				<p id="opisp"><?php echo $row["opis"]; ?></p>
 			</div>
 			

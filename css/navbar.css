@@ -105,6 +105,21 @@ body
 	display: none !important;
 }
 
+.permError
+{
+	font-size: 300%;
+	color: red;
+	width: 80%;
+	position:relative;
+	left: 10%;
+	
+}
+
+.btn
+{
+	cursor: pointer;
+}
+
 /*#navbar ul
 {
 	list-style: none;

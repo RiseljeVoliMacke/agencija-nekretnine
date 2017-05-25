@@ -10,6 +10,7 @@
 -CSS(raditi paralelno)
 -add log-in panel on every page(except register/admin)?
 -kontakt tab only visible to logged in user?
+-ogranici broj oglasa/komentara koje user moze postaviti
 
 List of leftovers from files:
 //Provjera po mjesecima, etc? CBA for now
@@ -32,3 +33,8 @@ function jsdebug($tmp)
 {
 	echo "<script>console.log(\"".$tmp."\")</script>";
 }
+
+
+-dodati fajl upload slike
+-zavrsiti kod za brisanje slike-
+-pravljenje novog oglasa

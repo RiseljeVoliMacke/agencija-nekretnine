@@ -49,7 +49,7 @@
 			</li>
 			<li>
 				<form id="logout" method="post" action=<?php echo "\"".htmlspecialchars($_SERVER["PHP_SELF"])."\""; if(!isset($_SESSION['user'])) echo "class=\"hidden\""; ?>>
-				<input type="submit" id="logoutbtn" value="Log out" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>
+				<input type="submit" id="logoutbtn" value="Log out" class="btn" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>
 				</form>
 			</li>
 		</ul>
@@ -145,7 +145,7 @@
 					<option class="hiddenp" id="sort"></option>
 				</select>
 				
-				<input type="submit" id="sortbtn" value="Sortiraj!">
+				<input type="submit" id="sortbtn" value="Sortiraj!" class="btn">
 				<img src="../images/arrow_up.png" class="arrow" id="up">
 				<img src="../images/arrow_down.png" class="arrow" id="down">
 			</form>
