@@ -56,20 +56,24 @@ CREATE TABLE `nekretnina` (
   `id` int(11) NOT NULL,
   `slika` varchar(100) DEFAULT NULL,
   `grad` varchar(20) DEFAULT NULL,
-  `ulica` varchar(30) DEFAULT NULL
+  `ulica` varchar(30) DEFAULT NULL,
+  `cijena` int(11) NOT NULL,
+  `povrsina` int(11) NOT NULL,
+  `povrsina_placa` int(11) NOT NULL,
+  `broj_soba` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `nekretnina`
 --
 
-INSERT INTO `nekretnina` (`id`, `slika`, `grad`, `ulica`) VALUES
-(1, 'http://localhost:8080/agencija-nekretnine/oglasi_images/nek1.jpg', 'Podgorica', 'Ul1'),
-(2, 'http://localhost:8080/agencija-nekretnine/oglasi_images/nek2.jpg', 'Niksic', 'Ul2'),
-(3, 'http://localhost:8080/agencija-nekretnine/oglasi_images/nek3.jpg', 'Cetinje', 'Ul3'),
-(4, 'http://localhost:8080/agencija-nekretnine/oglasi_images/nek4.jpg', 'Bar', 'Ul4'),
-(5, 'http://localhost:8080/agencija-nekretnine/oglasi_images/nek5.jpg', 'Podgorica', 'Ul5'),
-(6, 'http://localhost:8080/agencija-nekretnine/oglasi_images/nek6.jpg', 'Bar', 'Ul6');
+INSERT INTO `nekretnina` (`id`, `slika`, `grad`, `ulica`, `cijena`, `povrsina`, `povrsina_placa`, `broj_soba`) VALUES
+(1, 'nek1.jpg', 'Bar', 'Ul1', 1500, 100, 150, 2),
+(2, 'nek2.jpg', 'Niksic', 'Ul2', 1000, 50, 100, 1),
+(3, 'nek3.jpg', 'Cetinje', 'Ul3', 3000, 200, 250, 3),
+(4, 'nek4.jpg', 'Bar', 'Ul4', 1000, 500, 600, 8),
+(5, 'nek5.jpg', 'Podgorica', 'Ul5', 750, 325, 400, 4),
+(6, 'nek6.jpg', 'Bar', 'Ul6', 500, 150, 200, 3);
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,7 @@ CREATE TABLE `oglas` (
 --
 
 INSERT INTO `oglas` (`id`, `n_id`, `u_username`, `opis`, `kratki_opis`) VALUES
-(1, 1, 'Dusan123', 'Wrote water woman of heart it total other. By in entirely securing suitable graceful at families improved. Zealously few furniture repulsive was agreeable consisted difficult. Collected breakfast estimable questions in to favourite it. Known he place worth words it as to. Spoke now noise off smart her ready. \r\n', 'Of resolve to gravity thought my prepare chamber so. Unsatiable entreaties collecting may sympathize nay interested instrument.'),
+(1, 1, 'Dusan123', 'Wrote water woman of heart it total other. By in entirely securing suitable graceful at families improved. Zealously few furniture repulsive was agreeable consisted difficult. Collected breakfast estimable questions in to favourite it. Known he place worth words it as to. Spoke now noise off smart her ready.', 'Of resolve to gravity thought my prepare chamber so. Unsatiable entreaties collecting may sympathize nay interested instrument.'),
 (2, 2, 'Name1234', 'For norland produce age wishing. To figure on it spring season up. Her provision acuteness had excellent two why intention. As called mr needed praise at.', 'Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug. Introduced imprudence see say unpleasing devonshire acceptance son. Exeter '),
 (3, 3, 'Dusan123', 'Arrival entered an if drawing request. How daughters not promotion few knowledge contented. Yet winter law behind number stairs garret excuse. Minuter we natural conduct gravity if pointed oh no. Am immediate unwilling of attempted admitting disposing it. Handsome opinions on am at it ladyship. ', 'As absolute is by amounted repeated entirely ye returned. These ready timed enjoy might sir yet one since.'),
 (4, 4, 'Name1234', 'Years drift never if could forty being no. On estimable dependent as suffering on my. Rank it long have sure in room what as he. Possession travelling sufficient yet our. Talked vanity looked in to. Gay perceive led believed endeavor. Rapturous no of estimable oh therefore direction up. Sons the ever not fine like eyes all sure. ', 'It as announcing it me stimulated frequently continuing. Least their she you now above going stand forth.'),
@@ -121,7 +125,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`username`, `password`, `email`, `firstName`, `lastName`, `birthDate`, `phoneNum`, `city`) VALUES
 ('admin', '123456', '', '', '', '', '', ''),
 ('Dusan123', '1234aA', 'dmilenkovic@ymail.com', 'Dusan', 'Milenkovic', '11-11-1995', '069-653-671', 'Podgorica'),
-('Name1234', 'Password1234', 'email@fake.com', 'Firstname', 'Lastname', '2-2-1990', '069-655-444', 'Bar');
+('Name1234', 'Password1234', 'email@fake.com', 'Firstname', 'Lastname', '2-2-1990', '069-655-444', 'Bar'),
+('PetarJerk', '1234bB', 'douche@bag.com', 'Petar', 'Djerkovic', '1-1-1905', '555-555-555', 'Niksic');
 
 --
 -- Indexes for dumped tables
