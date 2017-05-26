@@ -74,7 +74,9 @@
 	height: 20px;
 	width: 20px;
 	border-radius: 15px;
-	background: #ffccff;
+	/*background: #ffccff;*/
+	background: gray;
+	
 	display: inline-block;
 	
 	position: absolute;
@@ -87,7 +89,7 @@
 
 .sliderSelected
 {
-	background: red;
+	background: white;
 }
 
 .errortext

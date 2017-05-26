@@ -1,8 +1,6 @@
 # To-do:
 -Ostavljanje komentara
--Sortiranje(filteri moraju biti podrzani u bazi)
 
--Finish database design
 -Search function from google?
 -Online iznajmljivanje prostora??????
 -Ugovaranje sastanaka
@@ -11,17 +9,17 @@
 -add log-in panel on every page(except register/admin)?
 -kontakt tab only visible to logged in user?
 -ogranici broj oglasa/komentara koje user moze postaviti
+-fix welcome message
 
 List of leftovers from files:
 //Provjera po mjesecima, etc? CBA for now
 //Dodati naša slova?
-
 //Php validacija datuma rodjenja?
-//Need to secure access to database!
-		
+//Need to secure access to database!	
 //Fix code on succesful registration (register.php)
 //Avoid using jquery? (oglasi.js)
 //Fix slider button bug(if you click the same button)
+//Timer with redirection?
 
 -breadcrumbs
 -interface elementi

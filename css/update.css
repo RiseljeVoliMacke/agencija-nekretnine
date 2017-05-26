@@ -20,7 +20,7 @@
 #tblinfo td:nth-child(odd)
 {
 	border: 1px solid black;
-	width: 30%;
+	width: 40%;
 }
 
 #tblinfo td:nth-child(even)
@@ -29,7 +29,12 @@
 	width: 70%;
 }
 
-#opis
+#tblinfo input
+{
+	width: 98%;
+}
+
+#opis, #kratki_opis
 {
 	display: block;
 	/*margin-top: 24%;*/
@@ -49,7 +54,7 @@ h2
 	margin: 0;
 }
 
-#opisp
+#opisp, #kratki_opisp
 {
 	
 	width: 100%;
@@ -123,3 +128,28 @@ hr
 	width: 20%;
 	height: 40px;
 }
+
+#slika_upload
+{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#slika_upload + label
+{
+	display: block;
+
+	font-size: 150%;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 40%;
+	width: 20%;
+	padding: 5px;
+	border: 2px solid yellow;
+	background: aqua;
+}
+

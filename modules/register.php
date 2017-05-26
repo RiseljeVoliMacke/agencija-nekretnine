@@ -46,7 +46,7 @@
 				$userNameErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Username is required!</td></tr>";
 				$register = false;
 			}
-			else if(!preg_match("/[A-Za-z0-9]{0,20}/", $userName))
+			elseif(!preg_match("/[A-Za-z0-9]{0,20}/", $userName))
 			{
 				$userNameErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid username</td></tr>";
 				$register = false;
@@ -68,7 +68,7 @@
 				$passwordErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Password is required!</td></tr>";
 				$register = false;
 			}
-			else if(!preg_match("/[A-Z]/", $password) || !preg_match("/[a-z]/", $password) || !preg_match("/[0-9]/", $password) || strlen($password)<6 || strlen($password)>30)
+			elseif(!preg_match("/[A-Z]/", $password) || !preg_match("/[a-z]/", $password) || !preg_match("/[0-9]/", $password) || strlen($password)<6 || strlen($password)>30)
 			{
 				$passwordErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid password</td></tr>";
 				$register = false;
@@ -85,7 +85,7 @@
 				$emailErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">E-mail is required!</td></tr>";
 				$register = false;
 			}
-			else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+			elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
 			{
 				$emailErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid e-mail</td></tr>";
 				$register = false;
@@ -107,7 +107,7 @@
 				$firstNameErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">First Name is required!</td></tr>";
 				$register = false;
 			}
-			else if(!preg_match("/^[A-Z][a-z]{0,20}/", $firstName))
+			elseif(!preg_match("/^[A-Z][a-z]{0,20}/", $firstName))
 			{
 				$firstNameErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid input</td></tr>";
 				$register = false;
@@ -118,7 +118,7 @@
 				$lastNameErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Last Name is required!</td></tr>";
 				$register = false;
 			}
-			else if(!preg_match("/^[A-Z][a-z]{0,20}/", $lastName))
+			elseif(!preg_match("/^[A-Z][a-z]{0,20}/", $lastName))
 			{
 				$lastNameErr = "<tr class=\"msg\"><td colspan=\"2\" class=\"errormsg\">Invalid input</td></tr>";
 				$register = false;
@@ -198,7 +198,7 @@
 							<label for="username">Username:</label>
 						</td>
 						<td>
-							<input type="text" name="username" id="username">
+							<input type="text" name="username" id="username" maxlength="20">
 						</td>
 					</tr>
 					<?php
@@ -209,7 +209,7 @@
 							<label for="password">Password:</label>
 						</td>
 						<td>
-							<input type="password" name="password" id="password">
+							<input type="password" name="password" id="password" maxlength="30">
 						</td>
 					</tr>
 					<?php
@@ -220,7 +220,7 @@
 							<label for="passconfirm">Confirm password:</label>
 						</td>
 						<td>
-							<input type="password" name="passconfirm" id="passconfirm">
+							<input type="password" name="passconfirm" id="passconfirm" maxlength="30">
 						</td>
 					</tr>
 					<?php
@@ -231,7 +231,7 @@
 							<label for="email">E-mail:</label>
 						</td>
 						<td>
-							<input type="email" name="email" id="email">
+							<input type="email" name="email" id="email" maxlength="30">
 						</td>
 					</tr>
 					<?php
@@ -242,7 +242,7 @@
 							<label for="firstname">Ime:</label>
 						</td>
 						<td>
-							<input type="text" name="firstname" id="firstname">
+							<input type="text" name="firstname" id="firstname" maxlength="20">
 						</td>
 					</tr>
 					<?php
@@ -253,7 +253,7 @@
 							<label for="lastname">Prezime:</label>
 						</td>
 						<td>
-							<input type="text" name="lastname" id="lastname">
+							<input type="text" name="lastname" id="lastname" maxlength="20">
 						</td>
 					</tr>
 					<?php
@@ -265,7 +265,7 @@
 						</td>
 						<td>
 							<!--<input type="date" name="bday" id="bday" min="01-01-1900" max="01-01-2017">-->
-							<input type="text" name="bday" id="bday">
+							<input type="text" name="bday" id="bday" maxlength="20">
 						</td>
 					</tr>
 					<?php
@@ -276,7 +276,7 @@
 							<label for="phonenum">Telefon:</label>
 						</td>
 						<td>
-							<input type="text" name="phonenum" id="phonenum">
+							<input type="text" name="phonenum" id="phonenum" maxlength="20">
 						</td>
 					</tr>
 					<tr>

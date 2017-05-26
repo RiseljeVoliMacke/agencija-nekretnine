@@ -104,7 +104,7 @@
 					while($row = $result->fetch_assoc() and $br<5)
 					{
 						$br++;
-						echo "<table><tr><td colspan=\"2\"><img src=\"".$row["slika"]."\"></td></tr>";
+						echo "<table><tr><td colspan=\"2\"><img src=\"../oglasi_images/".$row["slika"]."\"></td></tr>";
 						echo "<tr><td><p>".$row["grad"]."</p></td>";
 						echo "<td class=\"rightcol\"><p>".$row["cijena"]."€</p></td></tr>";
 						echo "<tr><td class=\"opis\"><p>".$row["kratki_opis"]."</p></td>";

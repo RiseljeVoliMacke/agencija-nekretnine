@@ -81,7 +81,7 @@
 		
 		<div id="oglas">
 			<div id="slika">
-				<img src="<?php echo $row["slika"]; ?>">
+				<img src="../oglasi_images/<?php echo $row["slika"]; ?>">
 			</div>
 			<div id="tblinfo">
 				<table>
@@ -160,7 +160,7 @@
 				</table>
 			</div>
 			<?php
-				if(isset($_SESSION['user']) && $_SESSION['user']==$row["username"])
+				if(isset($_SESSION['user']) && ($_SESSION['user']==$row["username"] || $_SESSION['user']=="admin"))
 				{
 					echo "<form method=\"POST\" action=\"update.php\">";
 					echo "<select class=\"hiddenp\" name=\"index\">";
