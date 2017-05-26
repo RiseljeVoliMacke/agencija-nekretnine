@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/navbar.css">
 <style>
 .button {
     background-color: #4CAF50; /* Green */
@@ -23,14 +24,16 @@
 </head>
 <body>
 
-<h2>Button Colors</h2>
+<!--<h2>Button Colors</h2>
 <p>Change the background color of a button with the background-color property:</p>
 
 <button class="button">Green</button>
 <button class="button button2">Blue</button>
 <button class="button button3">Red</button>
 <button class="button button4">Gray</button>
-<button class="button button5">Black</button>
+<button class="button button5">Black</button>-->
+
+<p class="permError">Oglas uspjesno obrisan</p>
 
 </body>
 </html>

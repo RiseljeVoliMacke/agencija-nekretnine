@@ -219,7 +219,7 @@
 				// Check if image file is a actual image or fake image
 				$check = getimagesize($_FILES["slika"]["tmp_name"]);
 				if($check !== false) 
-					// echo "File is an image - " . $check["mime"] . ".";
+				{}
 				else 
 					$upl = 0;
 			
@@ -245,9 +245,7 @@
 				$sql = "update nekretnina set grad=\"".$_POST["grad"]."\", ulica=\"".$_POST["ulica"]."\", povrsina=".$_POST["povrsina"].", povrsina_placa=".$_POST["povrsina_placa"].", broj_soba=".$_POST["broj_soba"]." where id=".$id;
 				
 				if(mysqli_query($conn, $sql))
-				{
-					
-				}
+				{}
 				else
 				{
 					die("<p class=\"permError\">Oglas nije promijenjen</p>");
@@ -258,21 +256,39 @@
 				if(mysqli_query($conn, $sql))
 				{
 					//Timer with redirection?
-					echo("Oglas uspjesno promijenjen");
+					echo("<p class=\"succes\">Oglas uspjesno promijenjen</p>");
 				}
 				else
-
 					die("<p class=\"permError\">Oglas nije promijenjen</p>");
 
 				if ($upl == 1)
 				{
 					move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file);
 				}
+				else
+					echo("<p class=\"permError\">Greša u upload-u slike</p>");
 		
 			}
 			elseif(isset($_POST["delete"]))
 			{
 				//Code for deleting oglas
+				openConn();
+				
+				$sql = "delete from komentar where oglas_id=".$index;
+				
+				if(mysqli_query($conn, $sql))
+				{}
+				else
+					die("<p class=\"permError\">Komentari vezani za oglas nisu mogli biti obrisani</p>");
+				
+				$sql = "delete from oglas where id=".$index;
+				
+				if(mysqli_query($conn, $sql))
+				{
+					echo "<p class=\"succes\">Oglas uspješno obrisan</p>";
+				}
+				else
+					die("<p class=\"permError\">Oglas nije mogao biti obrisan</p>");
 				
 			}
 			else
