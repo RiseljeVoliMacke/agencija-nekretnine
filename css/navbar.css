@@ -107,25 +107,29 @@ body
 
 .permError
 {
+	display: block;
 	text-align: center;
 	font-size: 300%;
 	background: red;
 	color: black;
-	width: 70%;
+	width: 80%;
 	position:relative;
 	border: 3px solid black;
-	left: 20%;
+	margin-top: 1%;
+	margin-left: 10%;
 }
 
 .succes
 {
+	display: block;
 	text-align: center;
 	font-size: 300%;
 	color: black;
-	width: 60%;
+	width: 80%;
 	position:relative;
-	border: 2px solid yellow;
-	left: 20%;
+	border: 3px solid yellow;
+	margin-top: 1%;
+	margin-left: 10%;
 	background: lime;
 }
 
@@ -133,3 +137,49 @@ body
 {
 	cursor: pointer;
 }
+
+.container
+{
+	margin-top: 2%;
+	display: inline-block;
+    position: relative;
+	width: 50%;
+	margin-left: 25%;
+}
+
+.dummy
+{
+	margin-top: 100%;
+}
+
+.loader 
+{
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin 
+{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#redirection_timer
+{
+	text-align: center;
+	font-size: 300%;
+	
+	position: absolute;
+	width: 86%;
+	bottom: 38%;
+	margin-left: 7%;
+}
+

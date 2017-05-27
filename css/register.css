@@ -75,7 +75,7 @@ input, select
 	background: yellow;
 }
 
-p
+/*p
 {
 	display: inline;
 	position: absolute;
@@ -83,7 +83,7 @@ p
 	width: 24%;
 	border: 1px solid black;
 	margin: 0;
-}
+}*/
 
 .hidden
 {

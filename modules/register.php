@@ -138,12 +138,27 @@
 				
 				if(mysqli_query($conn, $sql))
 				{
-					//Fix code on succesful registration
-					header("Location: homepage.php");
+					?>		
+						<div id="center">
+							<p class="succes">Uspješno ste se registrovali</p>
+							<div class="container">
+								<div class="dummy"></div>
+								<div class="loader"></div>
+								<p id="redirection_timer"></p>
+							</div>
+							<script> redirect(); </script>
+						</div>
+					<?php
+					die();
 				}
 				else
 				{
-					echo "Not inserted";
+					?>
+					<div id="center">
+						<p class=\"permError\">Greška tokom upisa</p>
+					</div>
+					<?php
+					die("");
 				}
 			}
 			

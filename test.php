@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/navbar.css">
+
 <style>
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
+.container {
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    position: relative;
+    width: 50%;
+}
+.dummy {
+    margin-top: 100%;
+}
+.element {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: red;
 }
 
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #f44336;} /* Red */ 
-.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
-.button5 {background-color: #555555;} /* Black */
 </style>
 </head>
 <body>
@@ -33,7 +33,12 @@
 <button class="button button4">Gray</button>
 <button class="button button5">Black</button>-->
 
-<p class="permError">Oglas uspjesno obrisan</p>
+<div class="container">
+    <div class="dummy"></div>
+    <div class="element">
+        some text
+    </div>
+</div>
 
 </body>
 </html>

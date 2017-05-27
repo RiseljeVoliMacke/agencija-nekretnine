@@ -7,8 +7,7 @@
 <head>
     <title>Oglas</title>
     <meta charset="utf8">
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/index.js"></script>
+	<script src="../js/index.js?version1"></script>
 	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
@@ -162,12 +161,12 @@
 			<?php
 				if(isset($_SESSION['user']) && ($_SESSION['user']==$row["username"] || $_SESSION['user']=="admin"))
 				{
-					echo "<form method=\"POST\" action=\"update.php\">";
+					echo "<form method=\"POST\" action=\"update.php\" onsubmit=\"return proceed()\">";
 					echo "<select class=\"hiddenp\" name=\"index\">";
 					echo "<option class=\"hiddenp\" value=\"".$_GET["num"]."\"></option>";
 					echo "</select>";
 					echo "<input type=\"submit\" value=\"Izmijeniti oglas\" id=\"change\" name=\"update\" class=\"btn\">";
-					echo "<input type=\"submit\" value=\"Izbrisati oglas\" id=\"delete\" name=\"delete\" class=\"btn\">";
+					echo "<input type=\"submit\" value=\"Izbrisati oglas\" id=\"delete\" name=\"delete\" class=\"btn\" onclick=\"popup()\">";
 					echo "</form>";
 				}
 			?>

@@ -7,8 +7,10 @@
 <head>
     <title>Izmjena oglasa</title>
     <meta charset="utf8">
-	<link rel="stylesheet" type="text/css" href="../css/update.css?version3">
-	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/update.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/update.css?version4">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css?version4">
 </head>
 <body>
 
@@ -118,7 +120,10 @@
 							
 									while($row2 = $result->fetch_assoc())
 									{
-										echo "<option value=\"".$row2["naziv"]."\">".$row2["naziv"]."</option>";
+										if($row2["naziv"]==$row["grad"])
+											echo "<option selected value=\"".$row2["naziv"]."\">".$row2["naziv"]."</option>";
+										else
+											echo "<option value=\"".$row2["naziv"]."\">".$row2["naziv"]."</option>";
 									}
 								?>
 								</select>
@@ -202,47 +207,62 @@
 			}
 			elseif(isset($_POST["finalupdate"]))
 			{
-				//Changes are sent, save them to db
+				//Changes are received, save them to db
 				openConn();
-				
-				$target_dir = "../oglasi_images/";
-				$target_file = $target_dir . "nek".$_POST["index"].".jpg";
-				$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-				$upl = 1;
-				
-				// jsdebug($target_dir);
-				// jsdebug($target_file);
-				// jsdebug($imageFileType);
-				// jsdebug($_FILES["slika"]["name"]);
-				// jsdebug($_FILES["slika"]["tmp_name"]);
-				
-				// Check if image file is a actual image or fake image
-				$check = getimagesize($_FILES["slika"]["tmp_name"]);
-				if($check !== false) 
-				{}
-				else 
-					$upl = 0;
-			
-				// Check if file already exists
-				// if (file_exists($target_file))
-					// die("<p class=\"permError\">File already exists</p>");
-			
-				// Check file size
-				if ($_FILES["slika"]["size"] > 2000000) 
-				{
+	
+				if($_FILES["slika"]["error"]==1)
 					echo("<p class=\"permError\">Sorry, your file is too large ( ͡° ͜ʖ ͡°)</p>");
-					$upl = 0;
+				
+				if($_FILES["slika"]["error"]==0)
+				{
+					$target_dir = "../oglasi_images/";
+					$target_file = $target_dir . "nek".$_POST["index"].".jpg";
+					$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+					$upl = 1;
+					
+					// jsdebug($upl);
+					
+					// Check if image file is a actual image or fake image
+					$check = getimagesize($_FILES["slika"]["tmp_name"]);
+					if($check !== false) 
+					{}
+					else 
+						$upl = 0;
+					
+					// jsdebug($upl);
+					
+					// Check if file already exists
+					/*if (file_exists($target_file))
+						die("<p class=\"permError\">File already exists</p>");*/
+					
+					// Check file size
+					if ($_FILES["slika"]["size"] > 2000000) 
+					{
+						echo("<p class=\"permError\">Sorry, your file is too large ( ͡° ͜ʖ ͡°)</p>");
+						$upl = 0;
+					}
+					
+					// jsdebug($upl);
+					
+					// Allow certain file formats
+					if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+					&& $imageFileType != "gif")
+					{
+						echo("<p class=\"permError\">Only .jpg/.png/.jpeg/.gif extensions are allowed</p>");
+						$upl = 0;
+					}
+					
+					// jsdebug($upl);
 				}
-				
-				// Allow certain file formats
-				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-				&& $imageFileType != "gif")
+				else
 					$upl = 0;
 				
+				// jsdebug($upl);
+			
 				//Complete update
 				$id = $_POST["index2"];
 						
-				$sql = "update nekretnina set grad=\"".$_POST["grad"]."\", ulica=\"".$_POST["ulica"]."\", povrsina=".$_POST["povrsina"].", povrsina_placa=".$_POST["povrsina_placa"].", broj_soba=".$_POST["broj_soba"]." where id=".$id;
+				$sql = "update nekretnina set grad=\"".$_POST["grad"]."\", ulica=\"".$_POST["ulica"]."\", povrsina=".$_POST["povrsina"].", povrsina_placa=".$_POST["povrsina_placa"].", broj_soba=".$_POST["broj_soba"].", cijena=".$_POST["cijena"]." where id=".$id;
 				
 				if(mysqli_query($conn, $sql))
 				{}
@@ -265,9 +285,20 @@
 				{
 					move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file);
 				}
-				else
-					echo("<p class=\"permError\">Greša u upload-u slike</p>");
+				/*else
+					echo("<p class=\"permError\">Greša u upload-u slike</p>");*/
+		?>
 		
+		<div class="container">
+			<div class="dummy"></div>
+			<div class="loader"></div>
+			<p id="redirection_timer"></p>
+		</div>
+		
+		<p class="hiddenp" id="index"><?php echo $_POST["index"]; ?></p>
+		<script> redirect(); </script>
+		
+		<?php
 			}
 			elseif(isset($_POST["delete"]))
 			{

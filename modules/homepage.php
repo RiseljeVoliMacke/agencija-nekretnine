@@ -14,9 +14,9 @@
 </head>
 <body>
 
-	<!-- Code to handle log-in attempts -->
 	<?php
-		/*For error handling, will only display 1 message("Invalid username or password") rather then be specific for security reasons*/
+		/*Code to handle log-in attempts
+		For error handling, will only display 1 message("Invalid username or password") rather then be specific for security reasons*/
 		$error = "";
 
 		//Need to secure access to database!	
