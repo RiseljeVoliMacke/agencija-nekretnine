@@ -1,0 +1,97 @@
+#tblinfo
+{
+	display: block;
+	width: 50%;
+	margin-top: 1%;
+	margin-left: 25%;
+}
+
+#tblinfo table
+{
+	width: 100%;
+	overflow: hidden;
+	background: #ccff99;
+	
+	border-collapse: collapse;
+}
+
+#tblinfo td:nth-child(odd)
+{
+	border: 1px solid black;
+	width: 40%;
+}
+
+#tblinfo td:nth-child(even)
+{
+	border: 1px solid black;
+	width: 70%;
+}
+
+#tblinfo input
+{
+	width: 98%;
+}
+
+#opis, #kratki_opis
+{
+	display: block;
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+	border: 1px solid black;
+	overflow: hidden;
+	clear: left;
+	
+	background: #ffffcc;
+}
+
+h2
+{
+	text-align: center;
+	margin: 0;
+}
+
+#opisp, #kratki_opisp
+{
+	width: 100%;
+}
+
+hr
+{
+	clear: left;
+}
+
+#create
+{
+	background: yellow;
+	border: 2px solid lime;
+	position:relative;
+	left: 40%;
+	font-size: 150%;
+	width: 20%;
+	height: 40px;
+}
+
+#slika_upload
+{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#slika_upload + label
+{
+	display: block;
+
+	font-size: 150%;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 40%;
+	width: 20%;
+	padding: 5px;
+	border: 2px solid yellow;
+	background: aqua;
+}

@@ -8,8 +8,6 @@ img
 	margin-bottom: -5px;
 	width: 100%;
 	height: auto;
-	
-	/*box-sizing: border-box;*/
 }
 
 #oglasi table
@@ -153,4 +151,13 @@ h3
 .hiddenp
 {
 	display: none;
+}
+
+#updatebtn
+{
+	margin-top: 5%;
+	width: 70%;
+	height: 30px;
+	font-size: 120%;
+	background-color: 
 }

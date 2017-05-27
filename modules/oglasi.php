@@ -149,9 +149,18 @@
 				<img src="../images/arrow_up.png" class="arrow" id="up">
 				<img src="../images/arrow_down.png" class="arrow" id="down">
 			</form>
+			<?php
+				if(isset($_SESSION["user"]))
+				{
+					?>
+						<form method="post" action="create.php">
+							<input type="submit" id="updatebtn" name="create" value="Novi Oglas" class="btn">
+						</form>
+					<?php
+				}
+
+			?>
 		</div>
-    
-    
     </div>
 	
 </body>
