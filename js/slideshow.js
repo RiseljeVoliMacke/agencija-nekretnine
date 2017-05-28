@@ -69,22 +69,27 @@ $(document).ready(function()
 	{
 		clearInterval(interval);
 		
-		var targ = elem.target.id.charAt(9);
+		next = elem.target.id.charAt(9);
 
-		document.getElementById(elem.target.id).classList.add("sliderSelected");
 		sliderBtnArray[tmp-1].classList.remove("sliderSelected");
+		document.getElementById(elem.target.id).classList.add("sliderSelected");
 		
-		stack.push(tmp);
-		
-		$("img:nth-child("+tmp+")").animate({right: "200%"}, 1000, function()
+		if(tmp!=next)
 		{
-			var tmp2 = stack.shift()
-			document.getElementById("img"+ tmp2).style.right = "-100%";	
-		});
+			$("img:nth-child("+tmp+")").animate({right: "200%"}, 1000, function()
+			{
+				i = stack.shift()
+				document.getElementById("img"+ i ).style.right = "-100%";	
+				
+				stack.shift();
+			});
+			
+			stack.push(tmp);
+			stack.push(next);
 		
-		$("img:nth-child("+targ+")").animate({right: "0"}, 650);
-		
-		tmp = targ;
+			tmp = next;
+			$("img:nth-child("+next+")").animate({right: "0"}, 650);
+		}
 	});
 });
 

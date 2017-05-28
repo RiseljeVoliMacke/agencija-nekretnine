@@ -7,6 +7,8 @@
 -add log-in panel on every page(except register/admin)?
 -ogranici broj oglasa/komentara koje user moze postaviti
 -fix welcome message
+-Za svaku sliku implementirati opciju zumiranja (pogledati
+npr. http://www.aliexpress.com/ ).
 
 List of leftovers from files:
 //Provjera po mjesecima, etc? CBA for now
@@ -14,12 +16,14 @@ List of leftovers from files:
 //Php validacija datuma rodjenja?
 //Need to secure access to database!	
 //Avoid using jquery? (oglasi.js)
-//Fix slider button bug(if you click the same button)
 
 -breadcrumbs
--kreiranje oglasa
--kreiranje, editovanje komentara
+-kreiranje
 -capcha code on registration
+
+
+
+
 
 function jsdebug($tmp)
 {
@@ -53,5 +57,3 @@ function openConn()
 
 echo "<p class=\"succes\">Oglas uspješno obrisan</p>";
 die("<p class=\"permError\">Oglas nije mogao biti obrisan</p>");
-
--pravljenje novog oglasa

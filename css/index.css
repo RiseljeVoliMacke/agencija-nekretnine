@@ -107,7 +107,7 @@ hr
 	/*border: 1px solid red;*/
 }
 
-#komentari li
+#komentari li, textArea
 {
 	border: 1px solid #cca300;
 	display: inline-block;
@@ -121,6 +121,11 @@ hr
 	/*border: 1px solid lime;*/
 }
 
+textArea
+{
+	font-size: 100%;
+}
+
 .date
 {
 	display: inline-block;
@@ -130,6 +135,49 @@ hr
 	
 	font-size: 90%;
 }
+
+.edit_comm
+{
+	width: 4%;
+	position: absolute;
+	right: 10%;
+
+	cursor: pointer;
+}
+
+.delete_comm
+{
+	width: 100%;
+
+	cursor: pointer;
+}
+
+#deletefrm
+{
+	position: absolute;
+	width: 4%;
+	right: 5%;	
+	display: inline-block;
+}
+
+#save_btn
+{
+	width: 20%;
+	height: 30px;
+	font-size: 120%;
+	margin-bottom: 1%;
+
+}
+
+#cancel_btn
+{
+	width: 20%;
+	height: 30px;
+	font-size: 120%;
+	margin-left: 1%;
+}
+
+
 
 #change
 {
@@ -148,9 +196,4 @@ hr
 	margin-top: 1%;
 	width: 20%;
 	height: 30px;
-}
-
-.hiddenp
-{
-	display: none;
 }
