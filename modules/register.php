@@ -11,6 +11,7 @@
     <script src="../js/register.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/register.css">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 
 <body>
@@ -146,7 +147,7 @@
 								<div class="loader"></div>
 								<p id="redirection_timer"></p>
 							</div>
-							<script> redirect(); </script>
+							<script> logOutRedirect(); </script>
 						</div>
 					<?php
 					die();

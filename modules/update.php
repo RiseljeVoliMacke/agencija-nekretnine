@@ -10,6 +10,7 @@
 	<script src="../js/update.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/update.css?version4">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css?version4">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
 
@@ -81,7 +82,7 @@
 				openConn();
 	
 				//Fetch fields from db
-				$sql = "select username, firstName, email, phoneNum, opis, kratki_opis, n_id, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
+				$sql = "select username, firstName, email, phoneNum, tip, opis, kratki_opis, n_id, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
 				oglas as o, nekretnina as n, user as u where o.n_id=n.id and o.u_username=u.username and o.id=".$index;
 								
 				$row = "";
@@ -166,6 +167,17 @@
 								</td>
 								<td>
 									<input type="number" name="cijena" value="<?php echo $row["cijena"]; ?>" min="0" max="100000000">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Tip
+								</td>
+								<td>
+									<select name="tip">
+										<option value="prodaja" <?php if($row["tip"]=="prodaja") echo "selected" ?>>Za prodaju</option>
+										<option value="najam" <?php if($row["tip"]=="najam") echo "selected" ?>>Za iznajmljivanje</option>
+									</select>
 								</td>
 							</tr>
 						</table>
@@ -259,7 +271,7 @@
 					die("<p class=\"permError\">Oglas nije promijenjen</p>");
 				}
 				
-				$sql = "update oglas set opis=\"".$_POST["opis"]."\", kratki_opis=\"".$_POST["kratki_opis"]."\" where id=".$_POST["index"];
+				$sql = "update oglas set tip=\"".$_POST["tip"]."\", opis=\"".$_POST["opis"]."\", kratki_opis=\"".$_POST["kratki_opis"]."\" where id=".$_POST["index"];
 				
 				if(mysqli_query($conn, $sql))
 					echo("<p class=\"succes\">Oglas uspjesno promijenjen</p>");

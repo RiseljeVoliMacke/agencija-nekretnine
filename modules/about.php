@@ -9,6 +9,7 @@
     <meta charset="utf8">
 	<link rel="stylesheet" type="text/css" href="../css/about.css">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
 

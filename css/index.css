@@ -249,3 +249,14 @@ textArea
 	position: relative;
 	left: 2%;
 }
+
+#rent_btn
+{
+	font-size: 140%;
+	background: yellow;
+	border: 2px solid black;
+	margin-left: 10%;
+	margin-top: 1%;
+	width: 20%;
+	height: 40px;
+}

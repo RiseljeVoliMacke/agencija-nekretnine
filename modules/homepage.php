@@ -8,9 +8,10 @@
     <title>Početna</title>
     <meta charset="utf8">
     <script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/slideshow.js"></script>
+	<script src="../js/homepage.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/homepage.css">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
 
@@ -54,8 +55,12 @@
 			}
 			else
 			{
-				session_unset();
-				session_destroy();
+				//Log-out handler
+				if(empty($_POST))
+				{
+					session_unset();
+					session_destroy();
+				}
 			}
 		}
 		

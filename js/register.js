@@ -2,8 +2,6 @@ var tmp, txt;
 
 $(document).ready(function() 
 {
-	
-	
 	//Display guidelines for username
 	$("#username").on('input', function()
 	{
@@ -291,16 +289,16 @@ function resetWarnings()
 	$(".msg").remove();
 }
 
-function redirect()
+function logOutRedirect()
 {
-	var timer = 5;
+	var timer = 3;
 	
 	document.getElementById("redirection_timer").innerHTML = "You will be redirected in "+timer;
 	
 	var timeOut = setTimeout(function()
 	{
 		window.location = "homepage.php";
-	}, 5000
+	}, 3000
 	);
 	
 	setInterval(function()

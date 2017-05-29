@@ -7,8 +7,10 @@
 <head>
     <title>Novi oglas</title>
     <meta charset="utf8">
+	<script src="../js/create.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/create.css?version1">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
 
@@ -145,6 +147,17 @@
 									<input type="number" name="cijena" min="0" max="100000000">
 								</td>
 							</tr>
+							<tr>
+								<td>
+									Tip
+								</td>
+								<td>
+									<select name="tip">
+										<option value="prodaja">Za prodaju</option>
+										<option value="najam">Za iznajmljivanje</option>
+									</select>
+								</td>
+							</tr>
 						</table>
 					</div>
 					
@@ -235,15 +248,30 @@
 
 					if(mysqli_query($conn, $sql))
 					{
-						$sql = "insert into oglas(n_id, u_username, opis, kratki_opis) values(".$index.", \"".$_SESSION["user"]."\", \"".$_POST["opis"]."\", \"".$_POST["kratki_opis"]."\")";
+						$sql = "insert into oglas(n_id, u_username, tip, opis, kratki_opis) values(".$index.", \"".$_SESSION["user"]."\", \"".$_POST["tip"]."\", \"".$_POST["opis"]."\", \"".$_POST["kratki_opis"]."\")";
 						
 						if(mysqli_query($conn, $sql))
+						{
 							echo("<p class=\"succes\">Oglas uspješno kreiran</p>");
+							
+							?>
+							<div class="container">
+								<div class="dummy"></div>
+								<div class="loader"></div>
+								<p id="redirection_timer"></p>
+							</div>
+							<script> redirect(); </script>
+							<?php
+						}
+						else
+							echo("<p class=\"permError\">Oglas nije kreiran</p>");
 					}
 					else
 						echo("<p class=\"permError\">Oglas nije kreiran</p>");
 					
 				}
+				else
+					echo("<p class=\"permError\">Slika nije mogla biti upload-ovana</p>");
 				$conn->close();
 			}
 		}	

@@ -8,7 +8,6 @@
 -fix welcome message
 -Za svaku sliku implementirati opciju zumiranja (pogledati
 npr. http://www.aliexpress.com/ ).
--favicon
 
 List of leftovers from files:
 //Provjera po mjesecima, etc? CBA for now
@@ -19,8 +18,7 @@ List of leftovers from files:
 -brisanje oglasa -> greska sa sliderom na home page-u
 -breadcrumbs?
 -capcha code on registration
-
-
+-copy LogOutRedirection on every page
 
 function jsdebug($tmp)
 {

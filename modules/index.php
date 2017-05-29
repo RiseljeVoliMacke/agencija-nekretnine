@@ -10,6 +10,7 @@
 	<script src="../js/index.js?version2"></script>
 	<link rel="stylesheet" type="text/css" href="../css/index.css?version1">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
 
@@ -42,7 +43,7 @@
 	else
 		$index = 1;
 
-	$sql = "select username, firstName, email, phoneNum, o.id, opis, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
+	$sql = "select username, firstName, email, phoneNum, o.id, tip, opis, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
 	oglas as o, nekretnina as n, user as u where o.n_id=n.id and o.u_username=u.username and o.id=".$index;
 
 	$row = "";
@@ -155,7 +156,12 @@
 					</tr>
 					<tr>
 						<td>
-							Cijena
+						<?php
+							if($row["tip"]=="najam")	
+								echo "Cijena/dan"; 
+							else
+								echo "Cijena"; 
+						?>
 						</td>
 						<td>
 							<?php echo $row["cijena"]; ?>€
@@ -173,6 +179,15 @@
 			echo "</select>";
 			echo "<input type=\"submit\" value=\"Izmijeni oglas\" id=\"change\" name=\"update\" class=\"btn\">";
 			echo "<input type=\"submit\" value=\"Izbriši oglas\" id=\"delete\" name=\"delete\" class=\"btn\" onclick=\"popup()\">";
+			echo "</form>";
+		}
+		
+		//Prikazivanje dugmadi za iznajmljivanje|kupovinu
+		if(isset($_SESSION['user']) && ($_SESSION['user']!=$row["username"] || $_SESSION['user']=="admin"))
+		{
+			echo "<form method=\"POST\" action=\"rent.php\">";
+			echo "<input type=\"hidden\" name=\"index\" value=\"".$index."\">";
+			echo "<input type=\"submit\" value=\"Iznajmi\" id=\"rent_btn\" name=\"rent\" class=\"btn\">";
 			echo "</form>";
 		}
 		?>

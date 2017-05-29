@@ -11,6 +11,7 @@
 	<script src="../js/oglasi.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/oglasi.css">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
 
@@ -91,7 +92,7 @@
 					}
 					else
 					{
-						$sql = "select o.id, kratki_opis, slika, grad, cijena from
+						$sql = "select o.id, tip, kratki_opis, slika, grad, cijena from
 						oglas as o, nekretnina as n
 						where o.n_id=n.id";
 					}
@@ -106,7 +107,10 @@
 						$br++;
 						echo "<table><tr><td colspan=\"2\"><img src=\"../oglasi_images/".$row["slika"]."\"></td></tr>";
 						echo "<tr><td><p>".$row["grad"]."</p></td>";
-						echo "<td class=\"rightcol\"><p>".$row["cijena"]."€</p></td></tr>";
+						// if($row["tip"]=="najam")
+							// echo "<td class=\"rightcol\"><p>".$row["cijena"]."€/dan</p></td></tr>";
+						// else
+							echo "<td class=\"rightcol\"><p>".$row["cijena"]."€</p></td></tr>";
 						echo "<tr><td class=\"opis\"><p>".$row["kratki_opis"]."</p></td>";
 						echo "<td class=\"rightcol link\"><a href=\"index.php?num=".$row["id"]."\">More details</a></td></tr></table>";
 					}

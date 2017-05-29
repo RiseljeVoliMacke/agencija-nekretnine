@@ -5,26 +5,14 @@
 <!doctype html>
 <html>
 <head>
-    <title>Napredna pretraga</title>
+    <title>Iznajmljivanje</title>
     <meta charset="utf8">
-	<link rel="stylesheet" type="text/css" href="../css/search.css">
-	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<script src="../js/rent.js?version1"></script>
+	<link rel="stylesheet" type="text/css" href="../css/rent.css?version1">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css?version1">
 	<link rel="icon" type="image/ico" href="../images/favicon.ico">
 </head>
 <body>
-
-	<?php
-		//Log-out handler
-		if ($_SERVER["REQUEST_METHOD"] == "POST") 
-		{
-			if(empty($_POST))
-			{
-				session_unset();
-				session_destroy();
-			}
-		}
-
-	?>
 
 	<div id="center">
 		<!--Navigation bar on top of central div-->
@@ -54,10 +42,42 @@
 			</li>
 		</ul>
 		
-		
-		
+		<?php
+		if ($_SERVER["REQUEST_METHOD"] == "POST") 
+		{
+			//Function for opening connection to database
+			function openConn()
+			{
+				global $conn, $index;
+				$user = "root";
+				$pass = "";
+				$dbname = "agencija_nekretnine";
+			
+				$conn = new mysqli("localhost", $user, $pass, $dbname);
+				if ($conn->connect_error) 
+					die("Connection failed: " . $conn->connect_error);
+				
+				if(isset($_POST["index"]))
+					$index = $_POST["index"];
+				else
+					die("<p class=\"permError\">Index not found");
+			}
+			
+			function jsdebug($tmp)
+			{
+				echo "<script>console.log(\"".$tmp."\")</script>";
+			}
+			
+			//Log-out handler
+			if(empty($_POST))
+			{
+				session_unset();
+				session_destroy();
+			}
+		}
+		?>
 		
 	</div>
-	
+	 <?php //$conn->close(); ?>
 </body>
 </html>
