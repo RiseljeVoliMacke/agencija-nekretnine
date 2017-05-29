@@ -86,14 +86,14 @@ hr
 #komentari
 {
 	width: 60%;
+	margin-left: 20%;
 	display: inline-block;
 	overflow: hidden;
 	position:relative;
 	top: -10px;
 	
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
-	border-top: 2px solid black;
+	border: 2px solid black;
+	float:left;
 }
 
 #komentari ul
@@ -101,7 +101,7 @@ hr
 	list-style: none;
 	margin: 2%;
 	padding: 0;
-	width: 95%;
+	width: 96%;
 	overflow: hidden;
 	
 	/*border: 1px solid red;*/
@@ -117,6 +117,7 @@ hr
 	width: 95%;
 	overflow: hidden;
 	background: #ffff99;
+
 	
 	/*border: 1px solid lime;*/
 }
@@ -160,7 +161,7 @@ textArea
 	display: inline-block;
 }
 
-#save_btn
+.save_btn
 {
 	width: 20%;
 	height: 30px;
@@ -169,15 +170,13 @@ textArea
 
 }
 
-#cancel_btn
+.cancel_btn
 {
 	width: 20%;
 	height: 30px;
 	font-size: 120%;
 	margin-left: 1%;
 }
-
-
 
 #change
 {
@@ -196,4 +195,57 @@ textArea
 	margin-top: 1%;
 	width: 20%;
 	height: 30px;
+}
+
+#new_comment_btn
+{
+	font-size: 120%;
+	background: rgb(32, 216, 34);
+	border: 2px solid black;
+	margin-left: 2%;
+	width: 16%;
+	height: 40px;
+
+	position:relative;
+	top: -10px;
+}
+
+#create_frm
+{
+	width: 60%;
+	margin-left: 20%;
+	display: inline-block;
+	/*overflow: hidden;*/
+	position:relative;
+	top: -10px;
+	
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	border-right: 2px solid black;
+	float:left;
+}
+
+#create_frm textArea
+{
+	display: inline-block;
+	margin-left: 2%;
+	margin-right: 2%;
+	width: 92%;
+	overflow: hidden;
+	background: #ffff99;
+	font-size: 100%;
+	margin-top: 2%;
+
+}
+
+#create_btn
+{
+	position: relative;
+	left: 2%;
+}
+
+#cancel_btn
+{
+	position: relative;
+	left: 2%;
 }

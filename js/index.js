@@ -15,13 +15,15 @@ function popup()
 
 function editComm(elem)
 {
+	var oglasIndex = document.getElementById("oglas_index").innerHTML;
+	
 	var li = elem.parentElement;
 	var index = li.children[0].innerHTML;
 	li.classList.add("hiddenp");
 	
 	var frm = document.createElement("form");
 	frm.method = "POST";
-	frm.action = "index.php";
+	frm.action = "index.php?num=" + oglasIndex;
 	
 	li.parentNode.insertBefore(frm, li.nextSibling);
 	
@@ -32,14 +34,14 @@ function editComm(elem)
 	textArea.value = li.children[4].innerHTML;
 	
 	var saveBtn = document.createElement("input");
-	saveBtn.id = "save_btn";
+	saveBtn.classList.add("save_btn");
 	saveBtn.type = "submit";
 	saveBtn.name = "submit";
 	saveBtn.value = "Sačuvaj";
 	saveBtn.classList.add("btn");
 	
 	var cancelBtn = document.createElement("button");
-	cancelBtn.id = "cancel_btn";
+	cancelBtn.classList.add("cancel_btn");
 	cancelBtn.type = "button";
 	cancelBtn.innerHTML = "Cancel";
 	cancelBtn.classList.add("btn");
@@ -69,4 +71,47 @@ function deleteComm(elem)
 	document.getElementById("delete_hidden").value = index;
 	
 	return confirm("Jeste li sigurni da zelite da obrisete komentar?");
+}
+
+function newComm()
+{
+	var oglasIndex = document.getElementById("oglas_index").innerHTML;
+	
+	var frm = document.createElement("form");
+	frm.method = "POST";
+	frm.action = "index.php?num=" + oglasIndex;
+	frm.id = "create_frm";
+	
+	var hr = document.getElementsByTagName("hr")[1];
+	hr.parentNode.insertBefore(frm, hr.nextSibling);
+	
+	var textArea = document.createElement("textarea");
+	textArea.rows = 5;
+	textArea.maxLength = 400;
+	textArea.name = "tekst"
+	textArea.id = "create_txt"
+	
+	var saveBtn = document.createElement("input");
+	saveBtn.classList.add("save_btn");
+	saveBtn.id = "create_btn";
+	saveBtn.type = "submit";
+	saveBtn.name = "create";
+	saveBtn.value = "Kreiraj";
+	saveBtn.classList.add("btn");
+	
+	var cancelBtn = document.createElement("button");
+	cancelBtn.classList.add("cancel_btn");
+	cancelBtn.id = ("cancel_btn");
+	cancelBtn.type = "button";
+	cancelBtn.innerHTML = "Cancel";
+	cancelBtn.classList.add("btn");
+	
+	cancelBtn.addEventListener("click", function()
+	{
+		this.parentElement.parentElement.removeChild(this.parentElement);
+	});
+	
+	frm.appendChild(textArea);
+	frm.appendChild(saveBtn);
+	frm.appendChild(cancelBtn);
 }

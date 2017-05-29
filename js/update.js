@@ -17,5 +17,4 @@ function redirect()
 		document.getElementById("redirection_timer").innerHTML = "You will be redirected in "+timer;
 	}, 1000
 	);
-	
 }

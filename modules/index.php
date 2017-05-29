@@ -7,7 +7,7 @@
 <head>
     <title>Oglas</title>
     <meta charset="utf8">
-	<script src="../js/index.js?version1"></script>
+	<script src="../js/index.js?version2"></script>
 	<link rel="stylesheet" type="text/css" href="../css/index.css?version1">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
 </head>
@@ -18,7 +18,7 @@
 	{
 		echo "<script>console.log(\"".$tmp."\")</script>";
 	}
-	
+
 	//Log-out handler
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{
@@ -42,7 +42,7 @@
 	else
 		$index = 1;
 
-	$sql = "select username, firstName, email, phoneNum, opis, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
+	$sql = "select username, firstName, email, phoneNum, o.id, opis, slika, grad, ulica, cijena, povrsina, povrsina_placa, broj_soba from
 	oglas as o, nekretnina as n, user as u where o.n_id=n.id and o.u_username=u.username and o.id=".$index;
 
 	$row = "";
@@ -164,14 +164,15 @@
 				</table>
 			</div>
 		<?php
+		//Prikazivanje dugmadi za izmjenu&brisanje oglasa
 		if(isset($_SESSION['user']) && ($_SESSION['user']==$row["username"] || $_SESSION['user']=="admin"))
 		{
 			echo "<form method=\"POST\" action=\"update.php\" onsubmit=\"return proceed()\">";
 			echo "<select class=\"hiddenp\" name=\"index\">";
 			echo "<option class=\"hiddenp\" value=\"".$_GET["num"]."\"></option>";
 			echo "</select>";
-			echo "<input type=\"submit\" value=\"Izmijeniti oglas\" id=\"change\" name=\"update\" class=\"btn\">";
-			echo "<input type=\"submit\" value=\"Izbrisati oglas\" id=\"delete\" name=\"delete\" class=\"btn\" onclick=\"popup()\">";
+			echo "<input type=\"submit\" value=\"Izmijeni oglas\" id=\"change\" name=\"update\" class=\"btn\">";
+			echo "<input type=\"submit\" value=\"Izbriši oglas\" id=\"delete\" name=\"delete\" class=\"btn\" onclick=\"popup()\">";
 			echo "</form>";
 		}
 		?>
@@ -185,11 +186,13 @@
 			
 			<hr>
 			
+			
+			
 			<div id="komentari">
 				<h2>Komentari</h2>
 				<ul>
 				<?php
-				//Sacuvaj komentar u db
+				//Promjena komentara
 				if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]))
 				{
 					$sql = "update komentar
@@ -209,6 +212,15 @@
 					mysqli_query($conn, $sql);
 				}
 				
+				//Dodavanje komentara
+				if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"]))
+				{
+					$sql = "insert into `komentar`(`u_username`, `oglas_id`, `tekst`, `datum`) values (\"".$_SESSION["user"]."\", ".$row["id"].", \"".$_POST["tekst"]."\", \"".date('Y-m-d H:i:s')."\")";
+							
+					mysqli_query($conn, $sql);
+				}
+				
+				//Prikazivanje komentara
 				$sql = "select id, u_username, tekst, datum
 					from komentar as k
 					where k.oglas_id=".$index."
@@ -216,29 +228,42 @@
 			
 				$result = mysqli_query($conn, $sql);
 				
-				while($row = $result->fetch_assoc())
+				while($row1 = $result->fetch_assoc())
 				{
-					echo "<li><p class=\"hiddenp\">".$row["id"]."</p>";
-					echo "<span class=\"username\">".$row["u_username"]." said:</span>";
+					echo "<li><p class=\"hiddenp\">".$row1["id"]."</p>";
+					echo "<span class=\"username\">".$row1["u_username"]." said:</span>";
 					
-					if(isset($_SESSION["user"]) && ($row["u_username"]==$_SESSION["user"] || $_SESSION["user"]=="admin"))
+					if(isset($_SESSION["user"]) && ($row1["u_username"]==$_SESSION["user"] || $_SESSION["user"]=="admin"))
 					{
 						echo "<img src=\"../images/edit.ico\" alt=\"edit_comment\" class=\"edit_comm\" onclick=\"editComm(this)\">";
 					
-						echo "<form method=\"post\" action=\"index.php\" onsubmit=\"return deleteComm(this)\" id=\"deletefrm\"><input type=\"hidden\" name=\"delete\" id=\"delete_hidden\"><input type=\"image\" src=\"../images/delete.ico\" alt=\"delete_comment\" class=\"delete_comm\"></form>";
+						echo "<form method=\"post\" action=\"index.php?num=".$row["id"]."\" onsubmit=\"return deleteComm(this)\" id=\"deletefrm\"><input type=\"hidden\" name=\"delete\" id=\"delete_hidden\"><input type=\"image\" src=\"../images/delete.ico\" alt=\"delete_comment\" class=\"delete_comm\"></form>";
 					}
 					
-					echo "<p class=\"comment\">".$row["tekst"]."</p>";
-					echo "<span class=\"date\">".date('d-m-Y H:i:s', strtotime($row["datum"]))."</span></li>";
+					echo "<p class=\"comment\">".$row1["tekst"]."</p>";
+					echo "<span class=\"date\">".date('d-m-Y H:i:s', strtotime($row1["datum"]))."</span></li>";
 				}
 				
-				$conn->close();
 				?>
 				</ul>
 			</div>
 			
+			<?php
+			if(isset($_SESSION['user']) && ($_SESSION['user']!=$row["username"] || $_SESSION['user']=="admin"))
+			{
+				?>
+				<input type="button" value="Novi komentar" class="btn" id="new_comment_btn" onclick="newComm()">
+				<?php
+			}
+			?>
+			
+			<p class="hiddenp" id="oglas_index"><?php echo $row["id"]; ?></p>
 		</div>
 	</div>
+	
+	<?php
+	$conn->close();
+	?>
 	
 </body>
 </html>

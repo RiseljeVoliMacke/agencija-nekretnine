@@ -33,12 +33,20 @@
 <button class="button button4">Gray</button>
 <button class="button button5">Black</button>-->
 
-<div class="container">
+<!--<div class="container">
     <div class="dummy"></div>
     <div class="element">
         some text
     </div>
-</div>
+</div>-->
+
+<?php 
+
+	$jd=gregoriantojd(5,29,2017);
+	// echo $jd;
+echo jddayofweek($jd,1);
+
+?>
 
 </body>
 </html>

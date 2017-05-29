@@ -1,5 +1,4 @@
 # To-do:
--Ostavljanje komentara
 -Search function from google?
 -Online iznajmljivanje prostora??????
 -Ugovaranje sastanaka
@@ -9,19 +8,17 @@
 -fix welcome message
 -Za svaku sliku implementirati opciju zumiranja (pogledati
 npr. http://www.aliexpress.com/ ).
+-favicon
 
 List of leftovers from files:
 //Provjera po mjesecima, etc? CBA for now
 //Dodati naša slova?
 //Php validacija datuma rodjenja?
 //Need to secure access to database!	
-//Avoid using jquery? (oglasi.js)
 
--breadcrumbs
--kreiranje
+-brisanje oglasa -> greska sa sliderom na home page-u
+-breadcrumbs?
 -capcha code on registration
-
-
 
 
 
