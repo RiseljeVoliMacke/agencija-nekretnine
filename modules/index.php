@@ -66,9 +66,6 @@
 				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
-				<a href="contact.php">Kontakt</a>
-			</li>
-			<li>
 				<a href="about.php">About</a>
 			</li>
 			<li>
@@ -160,7 +157,7 @@
 							if($row["tip"]=="najam")	
 								echo "Cijena/dan"; 
 							else
-								echo "Cijena"; 
+								echo "Cijena";
 						?>
 						</td>
 						<td>
@@ -185,10 +182,20 @@
 		//Prikazivanje dugmadi za iznajmljivanje|kupovinu
 		if(isset($_SESSION['user']) && ($_SESSION['user']!=$row["username"] || $_SESSION['user']=="admin"))
 		{
-			echo "<form method=\"POST\" action=\"rent.php\">";
-			echo "<input type=\"hidden\" name=\"index\" value=\"".$index."\">";
-			echo "<input type=\"submit\" value=\"Iznajmi\" id=\"rent_btn\" name=\"rent\" class=\"btn\">";
-			echo "</form>";
+			if($row["tip"]=="najam")	
+			{
+				echo "<form method=\"POST\" action=\"rent.php\">";
+				echo "<input type=\"hidden\" name=\"index\" value=\"".$index."\">";
+				echo "<input type=\"submit\" value=\"Iznajmi\" id=\"rent_btn\" name=\"rent\" class=\"btn\">";
+				echo "</form>";
+			}
+			else
+			{
+				echo "<form method=\"POST\" action=\"contact.php\">";
+				echo "<input type=\"hidden\" name=\"index\" value=\"".$index."\">";
+				echo "<input type=\"submit\" value=\"Kontakt\" id=\"rent_btn\" name=\"contact\" class=\"btn\">";
+				echo "</form>";
+			}
 		}
 		?>
 			<hr>

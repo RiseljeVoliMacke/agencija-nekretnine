@@ -77,7 +77,6 @@ INSERT INTO `nekretnina` (`id`, `slika`, `grad`, `ulica`, `cijena`, `povrsina`, 
 (5, 'nek5.jpg', 'Podgorica', 'Ul5', 750, 325, 400, 4),
 (6, 'nek6.jpg', 'Bar', 'Ul6', 500, 150, 200, 3),
 (7, 'nek7.jpg', 'Podgorica', 'Ul10', 1500, 1000, 1500, 5),
-(9, 'nek8.jpg', 'Podgorica', 'Ul8', 500000, 650, 1000, 6),
 (10, 'nek10.jpg', 'Podgorica', 'Ul8', 500000, 650, 1000, 6);
 
 -- --------------------------------------------------------

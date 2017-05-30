@@ -24,9 +24,6 @@
 				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
-				<a href="contact.php">Kontakt</a>
-			</li>
-			<li>
 				<a href="about.php">About</a>
 			</li>
 			<li>
@@ -291,7 +288,7 @@
 		</div>
 		
 		<p class="hiddenp" id="index"><?php echo $_POST["index"]; ?></p>
-		<script> redirect(); </script>
+		<script> pageRedirect(); </script>
 		
 		<?php
 			}

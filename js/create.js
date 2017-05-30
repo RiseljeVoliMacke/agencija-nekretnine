@@ -1,4 +1,4 @@
-function redirect()
+function pageRedirect()
 {
 	var timer = 5;
 	

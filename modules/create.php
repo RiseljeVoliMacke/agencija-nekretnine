@@ -24,9 +24,6 @@
 				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
-				<a href="contact.php">Kontakt</a>
-			</li>
-			<li>
 				<a href="about.php">About</a>
 			</li>
 			<li>
@@ -260,7 +257,7 @@
 								<div class="loader"></div>
 								<p id="redirection_timer"></p>
 							</div>
-							<script> redirect(); </script>
+							<script> pageRedirect(); </script>
 							<?php
 						}
 						else
@@ -274,7 +271,10 @@
 					echo("<p class=\"permError\">Slika nije mogla biti upload-ovana</p>");
 				$conn->close();
 			}
-		}	
+		}
+		else
+			die("<p class=\"permError\">You do not have required permissions to perform this action");
+			
 		?>
 	</div>
 	

@@ -289,7 +289,7 @@ function resetWarnings()
 	$(".msg").remove();
 }
 
-function logOutRedirect()
+function pageRedirect()
 {
 	var timer = 3;
 	

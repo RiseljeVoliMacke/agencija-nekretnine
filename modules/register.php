@@ -147,7 +147,7 @@
 								<div class="loader"></div>
 								<p id="redirection_timer"></p>
 							</div>
-							<script> logOutRedirect(); </script>
+							<script> pageRedirect(); </script>
 						</div>
 					<?php
 					die();
@@ -184,9 +184,6 @@
 			</li>
 			<li>
 				<a href="oglasi.php?page=1">Oglasi</a>
-			</li>
-			<li>
-				<a href="contact.php">Kontakt</a>
 			</li>
 			<li>
 				<a href="about.php">About</a>

@@ -42,9 +42,6 @@
 				<a href="oglasi.php?page=1">Oglasi</a>
 			</li>
 			<li>
-				<a href="contact.php">Kontakt</a>
-			</li>
-			<li>
 				<a href="about.php">About</a>
 			</li>
 			<li class="selected">
