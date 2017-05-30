@@ -46,7 +46,8 @@ INSERT INTO `komentar` (`id`, `u_username`, `oglas_id`, `tekst`, `datum`) VALUES
 (4, 'Name1234', 1, 'Ought these are balls place mrs their times add she. Taken no great widow spoke of it small. Genius use except son esteem merely her limits. Sons park by do make on. It do oh cottage offered cottage in written. Especially of dissimilar up attachment themselves by interested boisterous. Linen mrs seems men table. Jennings dashwood to quitting marriage bachelor in. On as conviction in of appeara nd', '2017-05-04 18:18:07'),
 (5, 'Dusan123', 2, 'Respect forming clothes do in he. Course so piqued no an by appear. Themselves reasonable pianoforte so motionless he as difficulty be. Abode way begin ham there power whole. Do unpleasing indulgence impossible to conviction. Suppose neither evident welcome it at do civilly uncivil. Sing tall much you get no\r\n', '2017-05-28 17:37:27'),
 (17, 'admin', 1, 'Talent she for lively eat led sister. Entrance strongly packages she out rendered get quitting denoting led. Dwelling confined improved it he no doubtful raptures. Several carried through an of up attempt gravity. Situation to be at offending elsewhere distrusts if. Particular use for considered projection cultivated. Worth of do doubt shall it their. Extensive existence up me contained he pronoun', '2017-05-29 15:07:28'),
-(20, 'admin', 2, 'His exquisite sincerity education shameless ten earnestly breakfast add. So we me unknown as improve hastily sitting forming. Especially favourable compliment but thoroughly unreserved saw she themselves. Sufficient impossible him may ten insensible put continuing', '2017-05-29 15:15:24');
+(20, 'admin', 2, 'His exquisite sincerity education shameless ten earnestly breakfast add. So we me unknown as improve hastily sitting forming. Especially favourable compliment but thoroughly unreserved saw she themselves. Sufficient impossible him may ten insensible put continuing', '2017-05-29 15:15:24'),
+(21, 'admin', 3, 'Stronger unpacked felicity to of mistaken. Fanny at wrong table ye in. Be on easily cannot innate in lasted months on. Differed and and felicity steepest mrs age outweigh. Opinions learning likewise daughter now age outweigh. Raptures stanhill my greatest mistaken or exercise he on although. Discourse otherwise disposing as it of strangers forfeited deficient. ', '2017-05-31 00:11:04');
 
 -- --------------------------------------------------------
 
@@ -71,11 +72,11 @@ CREATE TABLE `nekretnina` (
 
 INSERT INTO `nekretnina` (`id`, `slika`, `grad`, `ulica`, `cijena`, `povrsina`, `povrsina_placa`, `broj_soba`) VALUES
 (1, 'nek1.jpg', 'Bar', 'Ul1', 1000, 100, 150, 3),
-(2, 'nek2.jpg', 'Niksic', 'Ul2', 1000, 50, 100, 1),
+(2, 'nek2.jpg', 'Niksic', 'Ul2', 150000, 50, 100, 1),
 (3, 'nek3.jpg', 'Bar', 'Ul3', 3000, 200, 250, 3),
-(4, 'nek4.jpg', 'Bar', 'Ul4', 1000, 500, 600, 8),
-(5, 'nek5.jpg', 'Podgorica', 'Ul5', 750, 325, 400, 4),
-(6, 'nek6.jpg', 'Bar', 'Ul6', 500, 150, 200, 3),
+(4, 'nek4.jpg', 'Bar', 'Ul4', 40000, 500, 600, 8),
+(5, 'nek5.jpg', 'Podgorica', 'Ul5', 100000, 325, 400, 4),
+(6, 'nek6.jpg', 'Bar', 'Ul6', 250000, 150, 200, 3),
 (7, 'nek7.jpg', 'Podgorica', 'Ul10', 1500, 1000, 1500, 5),
 (10, 'nek10.jpg', 'Podgorica', 'Ul8', 500000, 650, 1000, 6);
 
@@ -182,7 +183,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `nekretnina`
 --

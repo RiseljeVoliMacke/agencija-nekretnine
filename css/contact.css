@@ -1,0 +1,35 @@
+#msgfield
+{
+	border: 1px solid black;
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 5%;
+	background: #ffffcc;
+	overflow: hidden;
+}
+
+#opisp
+{
+	margin-left: 2%;
+	width: 96%;
+	font-size: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	background: #ffff99;
+}
+
+#msgfield input
+{
+	margin-bottom: 1%;
+	margin-left: 35%;
+	width: 30%;
+	height: 30px;
+	font-size: 120%;
+}
+
+h2
+{
+	text-align:center;
+	margin-bottom: 0;
+	margin-top: 1%;
+}

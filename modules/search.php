@@ -38,11 +38,18 @@
 			<li>
 				<a href="about.php">About</a>
 			</li>
-			<li>
-				<a href="admin.php" <?php if(!(isset($_SESSION['status']))) echo "class=\"hidden\""; ?>>Admin</a>
-			</li>
-			<li>
-				<p id="welcomemsg" <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Welcome <?php if(isset($_SESSION['user'])) echo $_SESSION['user']; ?></p>
+			<?php 
+			if(isset($_SESSION['status']))
+			{
+			?>
+				<li>
+					<a href="admin.php">Admin</a>
+				</li>
+			<?php
+			}
+			?>
+			<li id="welcomemsg">
+				<p  <?php if(!(isset($_SESSION['user']))) echo "class=\"hidden\""; ?>>Logged in as <?php echo $_SESSION['user']; ?></p>
 			</li>
 			<li>
 				<form id="logout" method="post" action=<?php echo "\"".htmlspecialchars($_SERVER["PHP_SELF"])."\""; if(!isset($_SESSION['user'])) echo "class=\"hidden\""; ?>>

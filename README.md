@@ -1,11 +1,8 @@
 # To-do:
 -Search function from google?
--Online iznajmljivanje prostora??????
--Ugovaranje sastanaka
 -Administratorske akcije
 -add log-in panel on every page(except register/admin)?
 -ogranici broj oglasa/komentara koje user moze postaviti
--fix welcome message
 -Za svaku sliku implementirati opciju zumiranja (pogledati
 npr. http://www.aliexpress.com/ ).
 
@@ -17,7 +14,6 @@ List of leftovers from files:
 
 -breadcrumbs?
 -capcha code on registration
--copy LogOutRedirection on every page
 
 function jsdebug($tmp)
 {
