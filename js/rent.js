@@ -60,6 +60,7 @@ function exec()
 		{
 			document.getElementById(startDate[0]+" "+startDate[1]+" "+startDate[2]).classList.add("reserved");
 			document.getElementById(startDate[0]+" "+startDate[1]+" "+startDate[2]).classList.remove("free");
+			document.getElementById(startDate[0]+" "+startDate[1]+" "+startDate[2]).removeAttribute("onclick");
 			
 			if(startDate[2] < numOfDays)
 				startDate[2]++;
@@ -80,6 +81,7 @@ function exec()
 		console.log(startDate);
 		document.getElementById(startDate[0]+" "+startDate[1]+" "+startDate[2]).classList.add("reserved");
 		document.getElementById(startDate[0]+" "+startDate[1]+" "+startDate[2]).classList.remove("free");
+		document.getElementById(startDate[0]+" "+startDate[1]+" "+startDate[2]).removeAttribute("onclick");
 	}
 }
 

@@ -7,7 +7,7 @@
 <head>
     <title>Iznajmljivanje</title>
     <meta charset="utf8">
-	<script src="../js/rent.js?version9"></script>
+	<script src="../js/rent.js?version10"></script>
 	<link rel="stylesheet" type="text/css" href="../css/rent.css?version9">
 	<link rel="stylesheet" type="text/css" href="../css/navbar.css?version2">
 	<link rel="icon" type="image/ico" href="../images/favicon.ico">
