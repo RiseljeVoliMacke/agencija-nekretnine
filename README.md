@@ -15,7 +15,6 @@ List of leftovers from files:
 //Php validacija datuma rodjenja?
 //Need to secure access to database!	
 
--brisanje oglasa -> greska sa sliderom na home page-u
 -breadcrumbs?
 -capcha code on registration
 -copy LogOutRedirection on every page

@@ -64,11 +64,50 @@
 			}
 		}
 		
-		$sql = "select count(*) from oglas";
+		/*$sql = "select count(*) from oglas";
 		$result = mysqli_query($conn, $sql);
 		$result = $result->fetch_assoc();
 
-		$picCount = $result["count(*)"];
+		$picCount = $result["count(*)"];*/
+		
+		
+
+		$sql = "select slika from nekretnina";
+		$result = mysqli_query($conn, $sql);
+
+		$picArr = array();
+		while($row = $result->fetch_assoc())
+		{
+			array_push($picArr, $row["slika"]);
+		}
+		
+		// print_r($picArr);
+		
+		
+		$json = json_encode($picArr);
+		
+		// print_r($json);
+		// print_r($result["slika"]);
+		// $result = $result->fetch_assoc();
+		
+		// print_r($result);
+		// $picArr = $result["slika"];
+		// print_r($picArr);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		$conn->close();
 		
@@ -148,7 +187,7 @@
 		</div>
        
         <p class="hiddenp">
-			<?php echo $picCount; ?>
+			<?php echo $json; ?>
 		</p>
 	</div>
 		

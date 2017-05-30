@@ -10,11 +10,12 @@ var numOfImages = 5;
 $(document).ready(function() 
 {	
 	//Get images from db with php
-	var upperBound = $(".hiddenp").text();
+	var picArr = JSON.parse($(".hiddenp").text());
+	var upperBound = picArr.length;
 
 	var randomArr = [];
 	var coef = 0.25;
-	var tmp1 = Math.random();
+	var tmp1, tmp2;
 	
 	while(randomArr.length<numOfImages)
 	{
@@ -22,10 +23,11 @@ $(document).ready(function()
 
 		if(tmp1<coef)
 		{
-			tmp1 = Math.floor(Math.random()*upperBound) + 1;
-			
-			if(!randomArr.includes(tmp1))
-				randomArr.push(tmp1);
+			tmp1 = Math.floor(Math.random()*upperBound);
+			tmp2 = picArr[tmp1];
+
+			if(!randomArr.includes(tmp2))
+				randomArr.push(tmp2);
 		}
 	}
 	
@@ -33,7 +35,7 @@ $(document).ready(function()
 	for(i; i<numOfImages; i++)
 	{
 		imgArray[i] = document.createElement("img");
-		imgArray[i].src = "../oglasi_images/nek"+randomArr[i]+".jpg";
+		imgArray[i].src = "../oglasi_images/"+randomArr[i];
 		imgArray[i].alt = "sliderimage"+(i+1);
 		imgArray[i].id = "img" + (i+1);
 		
